@@ -1,25 +1,29 @@
-# Python Custom Unit Converter (PyCUC)
+# 🔄 Python Custom Unit Converter (PyCUC)
+
+![PyCUC]("./static/PyCUC-3.png)
 
 ![Downloads](https://img.shields.io/pypi/dm/PyCUC) ![PyPI](https://img.shields.io/pypi/v/PyCUC) ![Python Version](https://img.shields.io/pypi/pyversions/PyCUC.svg) ![License](https://img.shields.io/pypi/l/PyCUC) ![Read the Docs](https://img.shields.io/readthedocs/pycuc)
 
 Python Custom Unit Converter (PyCUC) is an open-source package designed to simplify unit conversions in Python. With PyCUC, you can effortlessly create custom conversion factors, convert between units, and streamline calculations in various fields, such as physics, engineering, and scientific computing.
 
-**Key Features:**
+## ✨ Key Features
 
-* Custom Conversion Factors: Define your own conversion factors for unique units.
-* Flexible Unit Conversions: Convert between units with ease, using a simple and intuitive methods.
-* Lightweight: Minimal dependencies and optimized for performance.
-* Easy to Use: Simple installation and straightforward usage.
+* 📐 **Custom Conversion Factors**: Define your own conversion factors for unique units
+* 🔄 **Flexible Unit Conversions**: Convert between units with ease, using simple and intuitive methods
+* 🪶 **Lightweight**: Minimal dependencies and optimized for performance
+* 🚀 **Easy to Use**: Simple installation and straightforward usage
 
-## Google Colab
+
+## 📊 Google Colab
 
 You can use the following code to run `PyCUC` in Google Colab:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AbTCZxz9xH0VxKCh-Qhb66X0GAGo9_0y?usp=sharing)
 
-## Installation
 
-Install PyCUC with pip
+## 📥 Installation
+
+Install PyCUC with pip:
 
 ```python
 import pycuc
@@ -27,15 +31,18 @@ import pycuc
 print(pycuc.__version__)
 ```
 
-## Usage Example 1
 
-* CHECK REFERENCES
+## 🔍 Usage Examples
+
+### 📋 Example 1: Basic Operations
+
+#### 🔍 Check References
 
 ```python
 print(pycuc.check_reference('pressure'))
 ```
 
-* CREATE A CUSTOM UNIT CONVERTER
+#### 🛠️ Create a Custom Unit Converter
 
 ```python
 # ! pressure
@@ -53,7 +60,7 @@ print(my_cuc_2.convert('F'))
 print(my_cuc_2.convert('R'))
 ```
 
-* CONVERT FROM TO
+#### ↔️ Convert From/To
 
 ```python
 # ! pressure
@@ -63,7 +70,7 @@ print(pycuc.convert_from_to(358, 'K', 'C'))
 print(pycuc.convert_from_to(25, 'C', 'K'))
 ```
 
-* CONVERT FROM TO (short format)
+#### 🔄 Convert From/To (Short Format)
 
 ```python
 # ! pressure
@@ -73,7 +80,8 @@ print(pycuc.to(360, 'K => C'))
 print(pycuc.to(250, 'C => K'))
 ```
 
-* DEFINE A NEW UNIT
+
+#### ✏️ Define a New Unit
 
 ```python
 # ! heat capacity unit: J/mol.K
@@ -86,7 +94,7 @@ print(my_cuc_3.convert('J/mol.K'))
 print(my_cuc_3.convert('kJ/mol.K'))
 ```
 
-* CHECK REFERENCE
+#### 📚 Check Reference
 
 ```python
 # ! pressure
@@ -97,9 +105,11 @@ print(my_cuc_3.check_reference('temperature'))
 print(my_cuc_3.check_reference('custom'))
 ```
 
-## Usage Examples 2
 
-* LOAD `CUSTOM UNIT` FROM `YML FILES`
+### 📋 Example 2: Advanced Usage
+
+
+#### 📂 Load Custom Units from YML Files
 
 ```python
 # load unit yml file
@@ -107,21 +117,21 @@ unit_file = os.path.join(os.getcwd(), 'test', 'custom-unit.yml')
 my_cuc = pycuc.go(reference_file=unit_file)
 ```
 
-* `from_to` METHOD AS:
+#### 🔀 Using from_to Method
 
 ```python
 # ! pressure
 print(my_cuc.from_to(1, 'MPa', 'Pa'))
 ```
 
-* `to` METHOD AS:
+#### 🚀 Using to Method
 
 ```python
 # ! pressure
 print(my_cuc.to(125, 'MPa => Pa'))
 ```
 
-* CHECK REFERENCES:
+#### 📋 Check References
 
 ```python
 # ! from yml file
@@ -130,11 +140,10 @@ print(my_cuc.check_reference('custom::HEAT-CAPACITY'))
 print(my_cuc.check_reference('custom::ENERGY'))
 ```
 
-## FAQ
+## ❓ FAQ
 
-For any question, contact me on [LinkedIn](https://www.linkedin.com/in/sina-gilassi/) 
+For any questions, contact me on [LinkedIn](https://www.linkedin.com/in/sina-gilassi/)
 
+## 👨‍💻 Authors
 
-## Authors
-
-- [@sinagilassi](https://www.github.com/sinagilassi)
+* [@sinagilassi](https://www.github.com/sinagilassi)
