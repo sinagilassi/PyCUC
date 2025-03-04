@@ -1,6 +1,6 @@
 # 🔄 Python Custom Unit Converter (PyCUC)
 
-![PyCUC]("./static/PyCUC-3.png)
+![PyCUC Logo](./static/PyCUC-3.png)
 
 ![Downloads](https://img.shields.io/pypi/dm/PyCUC) ![PyPI](https://img.shields.io/pypi/v/PyCUC) ![Python Version](https://img.shields.io/pypi/pyversions/PyCUC.svg) ![License](https://img.shields.io/pypi/l/PyCUC) ![Read the Docs](https://img.shields.io/readthedocs/pycuc)
 
