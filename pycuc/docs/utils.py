@@ -9,7 +9,7 @@ class Utils:
     def __init__(self):
         pass
 
-    def parse_conversion_block(self, input_str):
+    def parse_conversion_block(self, input_str: str):
         '''
         Checks conversion string
 
@@ -43,7 +43,7 @@ class Utils:
         except Exception as e:
             raise Exception('Parsing conversion failed!, ', e)
 
-    def _load_custom_conversion_unit(self, f):
+    def _load_custom_conversion_unit(self, f: str):
         '''
         Load custom conversion unit
 

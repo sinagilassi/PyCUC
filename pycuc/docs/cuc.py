@@ -3,6 +3,7 @@
 
 # import packages/modules
 import pandas as pd
+from typing import Optional
 # local
 from .utils import Utils
 from .refs import Refs
@@ -10,10 +11,26 @@ from .refs import Refs
 
 class CustomUnitConverter(Utils, Refs):
     # vars
-    # pressure
+    # NOTE: pressure
     _pressure_conversions = {}
-    # temperature
+    # NOTE: temperature
     _temperature_conversions = {}
+    # NOTE: density
+    _density_conversions = {}
+    # NOTE: energy
+    _energy_conversions = {}
+    # NOTE: heat capacity
+    _heat_capacity_conversions = {}
+    # NOTE: volume
+    _volume_conversions = {}
+    # NOTE: mass
+    _mass_conversions = {}
+    # NOTE: power
+    _power_conversions = {}
+    # NOTE: length
+    _length_conversions = {}
+    # NOTE: force
+    _force_conversions = {}
 
     # Initialize empty custom conversions dictionary
     _custom_conversions = {}
@@ -35,14 +52,16 @@ class CustomUnitConverter(Utils, Refs):
         self._pressure_conversions = self.pressure_conversions_ref
         self._temperature_conversions = self.temperature_conversions_ref
 
-    def check_reference(self, reference, dataframe=True):
+    def check_reference(self, reference: str, dataframe: bool = True):
         '''
         Checks if the reference is valid
 
         Parameters
         ----------
         reference : str
-            reference name such as pressure, temperature, custom
+            reference name such as pressure, temperature, custom, and ...
+        dataframe : bool
+            if True, return dataframe, else return dict
 
         Returns
         -------
@@ -66,7 +85,15 @@ class CustomUnitConverter(Utils, Refs):
             refs = {
                 'PRESSURE': self._pressure_conversions,
                 'TEMPERATURE': self._temperature_conversions,
-                'CUSTOM': self._custom_conversions_full
+                'CUSTOM': self._custom_conversions_full,
+                'DENSITY': self._density_conversions,
+                'ENERGY': self._energy_conversions,
+                'HEAT_CAPACITY': self._heat_capacity_conversions,
+                'VOLUME': self._volume_conversions,
+                'MASS': self._mass_conversions,
+                'POWER': self._power_conversions,
+                'LENGTH': self._length_conversions,
+                'FORCE': self._force_conversions
             }
 
             # take all keys
@@ -98,16 +125,16 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Checking references failed!, ', e)
 
-    def find_reference(self, from_unit, to_unit):
+    def find_reference(self, from_unit: str, to_unit: str):
         '''
         Finds the conversion function
 
         Parameters
         ----------
         from_unit : str
-            from unit
+            from unit, e.g. 'bar', 'psi', 'C', 'F', 'K', 'R'
         to_unit : str
-            to unit
+            to unit, e.g. 'bar', 'psi', 'C', 'F', 'K', 'R'
 
         Returns
         -------
@@ -115,15 +142,39 @@ class CustomUnitConverter(Utils, Refs):
             reference name such as pressure, temperature, custom
         '''
         try:
-            # reference
+            # SECTION: reference
             reference = None
-            # pressure
+            # NOTE: pressure
             if from_unit in self._pressure_conversions and to_unit in self._pressure_conversions:
                 reference = 'PRESSURE'
-            # temperature
+            # NOTE: temperature
             elif from_unit in self._temperature_conversions and to_unit in self._temperature_conversions:
                 reference = 'TEMPERATURE'
-            # custom
+            # NOTE: density
+            elif from_unit in self._density_conversions and to_unit in self._density_conversions:
+                reference = 'DENSITY'
+            # NOTE: energy
+            elif from_unit in self._energy_conversions and to_unit in self._energy_conversions:
+                reference = 'ENERGY'
+            # NOTE: heat capacity
+            elif from_unit in self._heat_capacity_conversions and to_unit in self._heat_capacity_conversions:
+                reference = 'HEAT_CAPACITY'
+            # NOTE: volume
+            elif from_unit in self._volume_conversions and to_unit in self._volume_conversions:
+                reference = 'VOLUME'
+            # NOTE: mass
+            elif from_unit in self._mass_conversions and to_unit in self._mass_conversions:
+                reference = 'MASS'
+            # NOTE: power
+            elif from_unit in self._power_conversions and to_unit in self._power_conversions:
+                reference = 'POWER'
+            # NOTE: length
+            elif from_unit in self._length_conversions and to_unit in self._length_conversions:
+                reference = 'LENGTH'
+            # NOTE: force
+            elif from_unit in self._force_conversions and to_unit in self._force_conversions:
+                reference = 'FORCE'
+            # SECTION: custom
             elif from_unit in self._custom_conversions and to_unit in self._custom_conversions:
                 reference = 'CUSTOM'
             else:
@@ -140,9 +191,9 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Finding reference failed!, ', e)
 
-    def check_conversion_block(self, conversion_block):
+    def check_conversion_block(self, conversion_block: str):
         '''
-        Checks conversion block
+        Checks conversion block, such as 'bar => psi', 'C => F', 'F => C', 'K => C', 'R => C'
 
         Parameters
         ----------
@@ -159,14 +210,21 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception("Checking conversion block failed!, ", e)
 
-    def convert(self, to_unit, reference=None):
+    def convert(self, to_unit: str, reference: Optional[str] = None):
         '''
         Selects the conversion function
 
         Parameters
         ----------
+        to_unit : str
+            to unit, e.g. 'bar', 'psi', 'C', 'F', 'K', 'R'
         reference : str
             reference name such as pressure, temperature, custom
+
+        Returns
+        -------
+        res : float
+            converted value
         '''
         try:
             # find reference
@@ -178,8 +236,18 @@ class CustomUnitConverter(Utils, Refs):
 
             # reference
             ref = {
+                # SECTION: predefined
                 'PRESSURE': self._pressure_conversions,
                 'TEMPERATURE': self._temperature_conversions,
+                'DENSITY': self._density_conversions,
+                'ENERGY': self._energy_conversions,
+                'HEAT_CAPACITY': self._heat_capacity_conversions,
+                'VOLUME': self._volume_conversions,
+                'MASS': self._mass_conversions,
+                'POWER': self._power_conversions,
+                'LENGTH': self._length_conversions,
+                'FORCE': self._force_conversions,
+                # SECTION: custom
                 'CUSTOM': self._custom_conversions
             }
 
@@ -189,8 +257,18 @@ class CustomUnitConverter(Utils, Refs):
 
             # reference
             ref_methods = {
+                # SECTION: predefined
                 'PRESSURE': lambda x: self.convert_pressure(x),
                 'TEMPERATURE': lambda x: self.convert_temperature(x),
+                'DENSITY': lambda x: self.convert_X(x, 'DENSITY'),
+                'ENERGY': lambda x: self.convert_X(x, 'ENERGY'),
+                'HEAT_CAPACITY': lambda x: self.convert_X(x, 'HEAT_CAPACITY'),
+                'VOLUME': lambda x: self.convert_X(x, 'VOLUME'),
+                'MASS': lambda x: self.convert_X(x, 'MASS'),
+                'POWER': lambda x: self.convert_X(x, 'POWER'),
+                'LENGTH': lambda x: self.convert_X(x, 'LENGTH'),
+                'FORCE': lambda x: self.convert_X(x, 'FORCE'),
+                # SECTION: custom
                 'CUSTOM': lambda x: self.convert_custom(x)
             }
 
@@ -204,6 +282,30 @@ class CustomUnitConverter(Utils, Refs):
             return res
         except Exception as e:
             raise Exception('Setting conversion function failed!, ', e)
+
+    def convert_X(self, to_unit: str, reference_name: str):
+        '''
+        Converts a value from one unit to another, using the reference dictionary.
+
+        Parameters
+        ----------
+        to_unit : str
+            to unit
+        reference_name : str
+            reference name such as pressure, temperature, custom
+
+        Returns
+        -------
+        float
+            converted value
+        '''
+        try:
+            # set
+            from_unit = self.unit
+            # res
+            return float(self.value) / float(self._reference[reference_name][from_unit]) * float(self._reference[reference_name][to_unit])
+        except Exception as e:
+            raise Exception('Pressure conversion failed!, ', e)
 
     def convert_pressure(self, to_unit):
         '''
@@ -227,7 +329,7 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Pressure conversion failed!, ', e)
 
-    def convert_temperature(self, to_unit):
+    def convert_temperature(self, to_unit: str):
         '''
         Converts temperature from one unit to another.
 
@@ -270,7 +372,7 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Temperature conversion failed!, ', e)
 
-    def add_custom_unit(self, unit, conversion_factor):
+    def add_custom_unit(self, unit: str, conversion_factor: float):
         '''
         Adds a custom unit conversion to the reference dictionary
 
@@ -293,7 +395,7 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Adding new unit failed!, ', e)
 
-    def load_custom_unit(self, f):
+    def load_custom_unit(self, f: str):
         '''
         Load custom unit
 
@@ -328,7 +430,7 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Loading custom unit failed!, ', e)
 
-    def convert_custom(self, to_unit):
+    def convert_custom(self, to_unit: str):
         '''
         Converts using custom units
 

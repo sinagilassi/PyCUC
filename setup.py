@@ -8,7 +8,9 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 APP_NAME = 'PyCUC'
-VERSION = '1.3.0'
+VERSION = '2.0.0'
+AUTHOR = 'Sina Gilassi'
+AUTHOR_EMAIL = "<sina.gilassi@gmail.com>"
 DESCRIPTION = 'PyCUC: A lightweight Python package for creating custom unit conversions.'
 LONG_DESCRIPTION = "PyCUC: A lightweight Python package for creating custom unit conversions. Easily define and convert between units with simplicity and flexibility"
 
@@ -16,13 +18,14 @@ LONG_DESCRIPTION = "PyCUC: A lightweight Python package for creating custom unit
 setup(
     name=APP_NAME,
     version=VERSION,
-    author="Sina Gilassi",
-    author_email="<sina.gilassi@gmail.com>",
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(exclude=['tests', '*.tests', '*.tests.*']),
     license='MIT',
+    license_files=[],
     # require files
     package_data={'': ['*.yml']},
     install_requires=['pandas', 'numpy'],
@@ -32,10 +35,10 @@ setup(
         "Development Status :: 1 - Planning",
         "Intended Audience :: Education",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
     ],
-    python_requires='>=3.9',
+    python_requires='>=3.10',
 )

@@ -1,8 +1,9 @@
 # import packages/modules
 import os
+from typing import Dict, Any, Optional, Union
 # local
 from .docs import CustomUnitConverter, CustomUnitConverterX, Utils
-from .config import __version__
+from .config import __version__, __author__, __email__, __description__
 
 
 def check_version():
@@ -17,7 +18,7 @@ def check_version():
     return __version__
 
 
-def check_reference(reference: str, dataframe=True):
+def check_reference(reference: str, dataframe: bool = True):
     '''
     Shows reference unit table
 
@@ -25,6 +26,8 @@ def check_reference(reference: str, dataframe=True):
     ----------
     reference : str
         reference name such as pressure, temperature, custom
+    dataframe : bool, optional
+        If True, then return a dataframe, otherwise return a dict
 
     Returns
     -------
@@ -59,7 +62,7 @@ def check_reference(reference: str, dataframe=True):
         raise Exception('Checking references failed!, ', e)
 
 
-def go(reference_file=None) -> CustomUnitConverterX:
+def go(reference_file: Optional[str] = None) -> CustomUnitConverterX:
     '''
     Initializes app with/without external yml file
 
@@ -160,7 +163,7 @@ def create_cuc(value: float, unit: str) -> CustomUnitConverter:
     return CustomUnitConverter(value, unit)
 
 
-def convert_from_to(value: float, from_unit: str, to_unit: str, reference=None, reference_file=None) -> float:
+def convert_from_to(value: float, from_unit: str, to_unit: str, reference: Optional[str] = None, reference_fileOptional: Optional[str] = None) -> float:
     '''
     Convert a value from one unit to another
 
@@ -185,13 +188,13 @@ def convert_from_to(value: float, from_unit: str, to_unit: str, reference=None, 
     Notes
     ------
     1. The reference can be set to 'PRESSURE', 'TEMPERATURE', 'CUSTOM'
-    2. If reference is None, then automatically set a value 
+    2. If reference is None, then automatically set a value
 
     Examples
     --------
     >>> # ! pressure
     >>> print(pycuc.convert_from_to(1, 'MPa', 'Pa'))
-    >>> 
+    >>>
     >>> # ! temperature
     >>> print(pycuc.convert_from_to(358, 'K', 'C'))
     >>> print(pycuc.convert_from_to(25, 'C', 'K'))
@@ -207,7 +210,7 @@ def convert_from_to(value: float, from_unit: str, to_unit: str, reference=None, 
         raise Exception('Conversion failed, ', e)
 
 
-def to(value: float, unit_conversion_block: str, reference=None, reference_file=None) -> float:
+def to(value: float, unit_conversion_block: str, reference: Optional[str] = None, reference_file: Optional[str] = None) -> float:
     '''
     Convert a value from one unit to another using `unit conversion block`
 
@@ -236,7 +239,7 @@ def to(value: float, unit_conversion_block: str, reference=None, reference_file=
     --------
     >>> # ! pressure
     >>> print(pycuc.to(1, 'MPa => Pa'))
-    >>> 
+    >>>
     >>> # ! temperature
     >>> print(pycuc.to(358, 'K => C'))
     >>> print(pycuc.to(25, 'C => K'))
