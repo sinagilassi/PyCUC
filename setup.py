@@ -28,7 +28,7 @@ setup(
     license_files=[],
     # require files
     package_data={'': ['*.yml']},
-    install_requires=['pandas', 'numpy'],
+    install_requires=['pandas', 'numpy', 'PyYAML'],
     keywords=['python', 'chemical engineering', 'custom unit conversion',
               'PyCUC'],
     classifiers=[

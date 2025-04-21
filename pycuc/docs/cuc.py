@@ -48,9 +48,17 @@ class CustomUnitConverter(Utils, Refs):
         super().__init__()
         Refs().__init__()
 
-        # init vars
+        # NOTE: init vars
         self._pressure_conversions = self.pressure_conversions_ref
         self._temperature_conversions = self.temperature_conversions_ref
+        self._density_conversions = self.density_conversions_ref
+        self._energy_conversions = self.energy_conversions_ref
+        self._heat_capacity_conversions = self.heat_capacity_conversions_ref
+        self._volume_conversions = self.volume_conversions_ref
+        self._mass_conversions = self.mass_conversions_ref
+        self._power_conversions = self.power_conversions_ref
+        self._length_conversions = self.length_conversions_ref
+        self._force_conversions = self.force_conversions_ref
 
     def check_reference(self, reference: str, dataframe: bool = True):
         '''

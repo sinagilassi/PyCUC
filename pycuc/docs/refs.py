@@ -61,14 +61,14 @@ class Refs:
 
     # SECTION: Heat capacity Conversions
     _heat_capacity_conversions_ref = {
-        'J/K': 1.0,
-        'kJ/K': 0.001,
-        'cal/K': 0.239006,
-        'kcal/K': 0.000239006,
-        'Wh/K': 0.000277778,
-        'kWh/K': 2.77778e-7,
-        'BTU/K': 0.000947817,
-        'ft-lb/K': 0.737562
+        'J/kg.K': 1.0,
+        'kJ/kg.K': 0.001,
+        'cal/kg.K': 0.239006,
+        'kcal/kg.K': 0.000239006,
+        'cal/g.K': 0.000239006,
+        'J/g.K': 0.001,
+        'kJ/g.K': 1.0e-6,
+        'BTU/lb.F': 0.000238846,
     }
 
     # SECTION: Volume Conversions
