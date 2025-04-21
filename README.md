@@ -13,6 +13,18 @@ Python Custom Unit Converter (PyCUC) is an open-source package designed to simpl
 * 🪶 **Lightweight**: Minimal dependencies and optimized for performance
 * 🚀 **Easy to Use**: Simple installation and straightforward usage
 
+## References
+
+PyCUC supports a wide range of unit conversions. Below are the updated references you can use for conversions:
+
+- **Density**: Convert between units like kg/m³, g/cm³, lb/ft³, etc.
+- **Energy**: Convert between units like J, kJ, cal, BTU, etc.
+- **Heat Capacity**: Convert between units like J/mol·K, kJ/mol·K, cal/mol·K, etc.
+- **Volume**: Convert between units like m³, L, mL, ft³, etc.
+- **Mass**: Convert between units like kg, g, lb, oz, etc.
+- **Power**: Convert between units like W, kW, HP, etc.
+- **Length**: Convert between units like m, cm, mm, in, ft, etc.
+- **Force**: Convert between units like N, kN, lbf, etc.
 
 ## 📊 Google Colab
 
