@@ -34,7 +34,6 @@ setup(
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Education",
-        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3.10",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
