@@ -59,6 +59,42 @@ class Refs:
         'ft-lb': 0.737562
     }
 
+    # SECTION: Gibbs Free Energy Conversions
+    _gibbs_free_energy_conversions_ref = {
+        # per mol and kmol
+        'J/mol': 1.0,
+        'kJ/mol': 0.001,
+        'J/kmol': 1000.0,
+        'kcal/mol': 0.000239006,
+        'cal/mol': 0.239006,
+        'kcal/kmol': 0.239006,
+        'cal/kmol': 239.006,
+        # per kg and g
+        'J/kg': 1.0,
+        'kJ/kg': 0.001,
+        'cal/g': 0.239006,
+        'kcal/g': 0.000239006,
+        'J/g': 0.001,
+        'kJ/g': 1.0e-6,
+        'cal/kg': 239.006,
+        'kcal/kg': 0.239006,
+    }
+
+    # SECTION: Enthalpy Conversions
+    _enthalpy_conversions_ref = {
+        # per kg and g
+        'J/kg': 1.0,
+        'kJ/kg': 0.001,
+        'cal/g': 0.239006,
+        'kcal/g': 0.000239006,
+        # per mol and kmol
+        'J/mol': 1.0,
+        'kJ/mol': 0.001,
+        'J/kmol': 1000.0,
+        'kcal/mol': 0.000239006,
+        'cal/mol': 0.239006
+    }
+
     # SECTION: Heat capacity Conversions
     _heat_capacity_conversions_ref = {
         'J/kg.K': 1.0,
