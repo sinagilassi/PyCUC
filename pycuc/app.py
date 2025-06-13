@@ -163,7 +163,13 @@ def create_cuc(value: float, unit: str) -> CustomUnitConverter:
     return CustomUnitConverter(value, unit)
 
 
-def convert_from_to(value: float, from_unit: str, to_unit: str, reference: Optional[str] = None, reference_fileOptional: Optional[str] = None) -> float:
+def convert_from_to(
+    value: float,
+    from_unit: str,
+    to_unit: str,
+    reference: Optional[str] = None,
+    reference_fileOptional: Optional[str] = None
+) -> float:
     '''
     Convert a value from one unit to another
 
@@ -210,7 +216,12 @@ def convert_from_to(value: float, from_unit: str, to_unit: str, reference: Optio
         raise Exception('Conversion failed, ', e)
 
 
-def to(value: float, unit_conversion_block: str, reference: Optional[str] = None, reference_file: Optional[str] = None) -> float:
+def to(
+    value: float,
+    unit_conversion_block: str,
+    reference: Optional[str] = None,
+    reference_file: Optional[str] = None
+) -> float:
     '''
     Convert a value from one unit to another using `unit conversion block`
 

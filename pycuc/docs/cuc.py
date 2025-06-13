@@ -19,6 +19,10 @@ class CustomUnitConverter(Utils, Refs):
     _density_conversions = {}
     # NOTE: energy
     _energy_conversions = {}
+    # NOTE: gibbs free energy
+    _gibbs_free_energy_conversions = {}
+    # NOTE: enthalpy
+    _enthalpy_conversions = {}
     # NOTE: heat capacity
     _heat_capacity_conversions = {}
     # NOTE: volume
@@ -53,6 +57,8 @@ class CustomUnitConverter(Utils, Refs):
         self._temperature_conversions = self.temperature_conversions_ref
         self._density_conversions = self.density_conversions_ref
         self._energy_conversions = self.energy_conversions_ref
+        self._gibbs_free_energy_conversions = self.gibbs_free_energy_conversions_ref
+        self._enthalpy_conversions = self.enthalpy_conversions_ref
         self._heat_capacity_conversions = self.heat_capacity_conversions_ref
         self._volume_conversions = self.volume_conversions_ref
         self._mass_conversions = self.mass_conversions_ref
@@ -60,7 +66,10 @@ class CustomUnitConverter(Utils, Refs):
         self._length_conversions = self.length_conversions_ref
         self._force_conversions = self.force_conversions_ref
 
-    def check_reference(self, reference: str, dataframe: bool = True):
+    def check_reference(self,
+                        reference: str,
+                        dataframe: bool = True
+                        ):
         '''
         Checks if the reference is valid
 
@@ -96,6 +105,8 @@ class CustomUnitConverter(Utils, Refs):
                 'CUSTOM': self._custom_conversions_full,
                 'DENSITY': self._density_conversions,
                 'ENERGY': self._energy_conversions,
+                'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
+                'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
@@ -153,37 +164,56 @@ class CustomUnitConverter(Utils, Refs):
             # SECTION: reference
             reference = None
             # NOTE: pressure
-            if from_unit in self._pressure_conversions and to_unit in self._pressure_conversions:
+            if (from_unit in self._pressure_conversions and
+                    to_unit in self._pressure_conversions):
                 reference = 'PRESSURE'
             # NOTE: temperature
-            elif from_unit in self._temperature_conversions and to_unit in self._temperature_conversions:
+            elif (from_unit in self._temperature_conversions and
+                  to_unit in self._temperature_conversions):
                 reference = 'TEMPERATURE'
             # NOTE: density
-            elif from_unit in self._density_conversions and to_unit in self._density_conversions:
+            elif (from_unit in self._density_conversions and
+                  to_unit in self._density_conversions):
                 reference = 'DENSITY'
             # NOTE: energy
-            elif from_unit in self._energy_conversions and to_unit in self._energy_conversions:
+            elif (from_unit in self._energy_conversions and
+                  to_unit in self._energy_conversions):
                 reference = 'ENERGY'
+            # NOTE: gibbs free energy
+            elif (from_unit in self._gibbs_free_energy_conversions and
+                  to_unit in self._gibbs_free_energy_conversions):
+                reference = 'GIBBS_FREE_ENERGY'
+            # NOTE: enthalpy
+            elif (from_unit in self._enthalpy_conversions and
+                    to_unit in self._enthalpy_conversions):
+                reference = 'ENTHALPY'
             # NOTE: heat capacity
-            elif from_unit in self._heat_capacity_conversions and to_unit in self._heat_capacity_conversions:
+            elif (from_unit in self._heat_capacity_conversions and
+                  to_unit in self._heat_capacity_conversions):
                 reference = 'HEAT_CAPACITY'
             # NOTE: volume
-            elif from_unit in self._volume_conversions and to_unit in self._volume_conversions:
+            elif (from_unit in self._volume_conversions and
+                  to_unit in self._volume_conversions):
                 reference = 'VOLUME'
             # NOTE: mass
-            elif from_unit in self._mass_conversions and to_unit in self._mass_conversions:
+            elif (from_unit in self._mass_conversions and
+                  to_unit in self._mass_conversions):
                 reference = 'MASS'
             # NOTE: power
-            elif from_unit in self._power_conversions and to_unit in self._power_conversions:
+            elif (from_unit in self._power_conversions and
+                  to_unit in self._power_conversions):
                 reference = 'POWER'
             # NOTE: length
-            elif from_unit in self._length_conversions and to_unit in self._length_conversions:
+            elif (from_unit in self._length_conversions and
+                  to_unit in self._length_conversions):
                 reference = 'LENGTH'
             # NOTE: force
-            elif from_unit in self._force_conversions and to_unit in self._force_conversions:
+            elif (from_unit in self._force_conversions and
+                  to_unit in self._force_conversions):
                 reference = 'FORCE'
             # SECTION: custom
-            elif from_unit in self._custom_conversions and to_unit in self._custom_conversions:
+            elif (from_unit in self._custom_conversions and
+                  to_unit in self._custom_conversions):
                 reference = 'CUSTOM'
             else:
                 # check
@@ -218,7 +248,10 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception("Checking conversion block failed!, ", e)
 
-    def convert(self, to_unit: str, reference: Optional[str] = None):
+    def convert(self,
+                to_unit: str,
+                reference: Optional[str] = None
+                ):
         '''
         Selects the conversion function
 
@@ -249,6 +282,8 @@ class CustomUnitConverter(Utils, Refs):
                 'TEMPERATURE': self._temperature_conversions,
                 'DENSITY': self._density_conversions,
                 'ENERGY': self._energy_conversions,
+                'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
+                'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
@@ -270,6 +305,8 @@ class CustomUnitConverter(Utils, Refs):
                 'TEMPERATURE': lambda x: self.convert_temperature(x),
                 'DENSITY': lambda x: self.convert_X(x, 'DENSITY'),
                 'ENERGY': lambda x: self.convert_X(x, 'ENERGY'),
+                'GIBBS_FREE_ENERGY': lambda x: self.convert_X(x, 'GIBBS_FREE_ENERGY'),
+                'ENTHALPY': lambda x: self.convert_X(x, 'ENTHALPY'),
                 'HEAT_CAPACITY': lambda x: self.convert_X(x, 'HEAT_CAPACITY'),
                 'VOLUME': lambda x: self.convert_X(x, 'VOLUME'),
                 'MASS': lambda x: self.convert_X(x, 'MASS'),
@@ -291,7 +328,10 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Setting conversion function failed!, ', e)
 
-    def convert_X(self, to_unit: str, reference_name: str):
+    def convert_X(self,
+                  to_unit: str,
+                  reference_name: str
+                  ):
         '''
         Converts a value from one unit to another, using the reference dictionary.
 
@@ -311,11 +351,14 @@ class CustomUnitConverter(Utils, Refs):
             # set
             from_unit = self.unit
             # res
-            return float(self.value) / float(self._reference[reference_name][from_unit]) * float(self._reference[reference_name][to_unit])
+            from_factor = float(self._reference[reference_name][from_unit])
+            to_factor = float(self._reference[reference_name][to_unit])
+            return float(self.value) / from_factor * to_factor
+
         except Exception as e:
             raise Exception('Pressure conversion failed!, ', e)
 
-    def convert_pressure(self, to_unit):
+    def convert_pressure(self, to_unit: str):
         '''
         Converts pressure from one unit to another.
 
@@ -333,7 +376,10 @@ class CustomUnitConverter(Utils, Refs):
             # set
             from_unit = self.unit
             # res
-            return float(self.value) / float(self._pressure_conversions[from_unit]) * float(self._pressure_conversions[to_unit])
+            from_factor = float(self._pressure_conversions[from_unit])
+            to_factor = float(self._pressure_conversions[to_unit])
+            return float(self.value) / from_factor * to_factor
+
         except Exception as e:
             raise Exception('Pressure conversion failed!, ', e)
 
@@ -460,15 +506,13 @@ class CustomUnitConverter(Utils, Refs):
             for key, custom_unit_dict in self._custom_conversions_full.items():
 
                 # check
-                if from_unit in custom_unit_dict and to_unit in custom_unit_dict:
-                    return float(self.value) / float(custom_unit_dict[from_unit]) * float(custom_unit_dict[to_unit])
+                if (from_unit in custom_unit_dict and
+                        to_unit in custom_unit_dict):
+                    # set
+                    from_val = float(custom_unit_dict[from_unit])
+                    to_val = float(custom_unit_dict[to_unit])
+                    return float(self.value) / from_val * to_val
 
             raise ValueError("Custom conversion units not found")
-
-            # check
-            # if from_unit not in self._custom_conversions or to_unit not in self._custom_conversions:
-            #     raise ValueError("Custom conversion units not found")
-
-            # return float(self.value) / float(self._custom_conversions[from_unit]) * float(self._custom_conversions[to_unit])
         except Exception as e:
             raise Exception('Conversion failed!, ', e)

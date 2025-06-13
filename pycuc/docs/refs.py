@@ -65,38 +65,45 @@ class Refs:
         'J/mol': 1.0,
         'kJ/mol': 0.001,
         'J/kmol': 1000.0,
-        'kcal/mol': 0.000239006,
-        'cal/mol': 0.239006,
-        'kcal/kmol': 0.239006,
-        'cal/kmol': 239.006,
+        'cal/mol': 0.239005736,
+        'kcal/mol': 0.0002390057,
+        'kcal/kmol': 0.2390057,
+        'cal/kmol': 239.0057,
         # per kg and g
         'J/kg': 1.0,
         'kJ/kg': 0.001,
-        'cal/g': 0.239006,
-        'kcal/g': 0.000239006,
+        'cal/g': 0.000239006,
+        'kcal/g': 2.39006e-7,
         'J/g': 0.001,
         'kJ/g': 1.0e-6,
-        'cal/kg': 239.006,
-        'kcal/kg': 0.239006,
+        'cal/kg': 0.239006,
+        'kcal/kg': 0.000239006,
     }
 
     # SECTION: Enthalpy Conversions
     _enthalpy_conversions_ref = {
-        # per kg and g
-        'J/kg': 1.0,
-        'kJ/kg': 0.001,
-        'cal/g': 0.239006,
-        'kcal/g': 0.000239006,
         # per mol and kmol
         'J/mol': 1.0,
         'kJ/mol': 0.001,
         'J/kmol': 1000.0,
-        'kcal/mol': 0.000239006,
-        'cal/mol': 0.239006
+        'cal/mol': 0.239005736,
+        'kcal/mol': 0.0002390057,
+        'kcal/kmol': 0.2390057,
+        'cal/kmol': 239.0057,
+        # per kg and g
+        'J/kg': 1.0,
+        'kJ/kg': 0.001,
+        'cal/g': 0.000239006,
+        'kcal/g': 2.39006e-7,
+        'J/g': 0.001,
+        'kJ/g': 1.0e-6,
+        'cal/kg': 0.239006,
+        'kcal/kg': 0.000239006,
     }
 
     # SECTION: Heat capacity Conversions
     _heat_capacity_conversions_ref = {
+        # mass basis
         'J/kg.K': 1.0,
         'kJ/kg.K': 0.001,
         'cal/kg.K': 0.239006,
@@ -105,6 +112,15 @@ class Refs:
         'J/g.K': 0.001,
         'kJ/g.K': 1.0e-6,
         'BTU/lb.F': 0.000238846,
+        # molar basis
+        'J/mol.K': 1.0,
+        'kJ/mol.K': 0.001,
+        'cal/mol.K': 0.239005736,
+        'kcal/mol.K': 0.0002390057,
+        'cal/kmol.K': 239.0057,
+        'kcal/kmol.K': 0.2390057,
+        'J/kmol.K': 1000.0,
+        'kJ/kmol.K': 1.0,
     }
 
     # SECTION: Volume Conversions
@@ -169,6 +185,8 @@ class Refs:
         'TEMPERATURE': _temperature_conversions_ref,
         'DENSITY': _density_conversions_ref,
         'ENERGY': _energy_conversions_ref,
+        'GIBBS_FREE_ENERGY': _gibbs_free_energy_conversions_ref,
+        'ENTHALPY': _enthalpy_conversions_ref,
         'HEAT_CAPACITY': _heat_capacity_conversions_ref,
         'VOLUME': _volume_conversions_ref,
         'MASS': _mass_conversions_ref,
@@ -195,6 +213,14 @@ class Refs:
     @property
     def energy_conversions_ref(self):
         return self._energy_conversions_ref
+
+    @property
+    def gibbs_free_energy_conversions_ref(self):
+        return self._gibbs_free_energy_conversions_ref
+
+    @property
+    def enthalpy_conversions_ref(self):
+        return self._enthalpy_conversions_ref
 
     @property
     def heat_capacity_conversions_ref(self):
