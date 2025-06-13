@@ -8,7 +8,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 APP_NAME = 'PyCUC'
-VERSION = '2.0.0'
+VERSION = '2.1.0'
 AUTHOR = 'Sina Gilassi'
 AUTHOR_EMAIL = "<sina.gilassi@gmail.com>"
 DESCRIPTION = 'PyCUC: A lightweight Python package for creating custom unit conversions.'
@@ -29,8 +29,8 @@ setup(
     # require files
     package_data={'': ['*.yml']},
     install_requires=['pandas', 'numpy', 'PyYAML'],
-    keywords=['python', 'chemical engineering', 'custom unit conversion',
-              'PyCUC'],
+    keywords=['chemical engineering', 'custom unit conversion',
+              'engineering unit conversion',],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Education",
