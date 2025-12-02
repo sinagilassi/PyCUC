@@ -39,12 +39,24 @@ class Refs:
 
     # SECTION: Density Conversions
     _density_conversions_ref = {
-        'g/cm3': 1.0,
+        # mass per volume
+        'g/cm3': 1.0,  # ! base unit
         'kg/dm3': 1.0,
         't/m3': 1.0,
         'kg/m3': 1000.0,
         'lb/ft3': 62.42796,
         'lb/in3': 0.0361273,
+        # mole per volume
+        "kmol/m3": 1.0,  # ! base unit
+        "mol/m3": 1000.0,
+        "kmol/dm3": 0.001,
+        "mol/dm3": 1.0,
+        "kmol/cm3": 1e-6,
+        "mol/cm3": 0.001,
+        "mol/L": 1.0,
+        "kmol/L": 0.001,
+        "mol/ft3": 35.3147,
+        "kmol/ft3": 0.0353147
     }
 
     # SECTION: Energy Conversions
