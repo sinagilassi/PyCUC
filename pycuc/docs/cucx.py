@@ -87,8 +87,10 @@ class CustomUnitConverterX(Utils, Refs):
 
             if dataframe:
                 # Convert dictionary to DataFrame
-                df = pd.DataFrame(list(res.items()),
-                                  columns=['Unit', 'Value'])
+                df = pd.DataFrame(
+                    list(res.items()),
+                    columns=['Unit', 'Value']
+                )
                 return df
             else:
                 return res
@@ -158,7 +160,7 @@ class CustomUnitConverterX(Utils, Refs):
 
     def to(self, value, unit_conversion_block, reference=None):
         '''
-        Converts through a unit conversion block 
+        Converts through a unit conversion block
 
         Parameters
         ----------
