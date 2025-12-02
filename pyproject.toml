@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycuc"
+version = "2.1.0"
+description = "PyCUC: A lightweight Python package for creating custom unit conversions. Easily define and convert between units with simplicity and flexibility."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Sina Gilassi", email = "sina.gilassi@gmail.com"}
+]
+keywords = [
+    "chemical-engineering",
+    'custom unit conversion',
+    'engineering unit conversion'
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: Unix",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "pandas>=2.3.3",
+    "pyyaml>=6.0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "rich>=14.2.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "rich>=14.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sinagilassi/pycuc"
+Source = "https://github.com/sinagilassi/pycuc"
+Tracker = "https://github.com/sinagilassi/pycuc/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = [
+    "tests",
+    "tests.*",
+    "examples",
+    "examples.*",
+    "notebooks",
+    "notebooks.*",
+    "statics",
+    "statics.*",
+    "private",
+    "private.*",
+    "app",
+    "app.*"
+]
+
+[tool.setuptools.package-data]
+pycuc = [
+    "config/*.yml",
+    "data/*.csv",
+    "templates/*.html",
+    "static/*",
+    "static/**/*",
+    # yml files
+    "**/*.yml",
+]
