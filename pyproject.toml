@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycuc"
-version = "2.1.0"
+version = "2.1.1"
 description = "PyCUC: A lightweight Python package for creating custom unit conversions. Easily define and convert between units with simplicity and flexibility."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -16,7 +16,18 @@ authors = [
 keywords = [
     "chemical-engineering",
     'custom unit conversion',
-    'engineering unit conversion'
+    'engineering unit conversion',
+    'unit conversion tool',
+    'lightweight unit conversion',
+    'density conversion',
+    'temperature conversion',
+    'pressure conversion',
+    'mass conversion',
+    'volume conversion',
+    'heat-capacity conversion',
+    'enthalpy conversion',
+    'gibbs-free-energy conversion',
+
 ]
 classifiers = [
     "Development Status :: 1 - Planning",
