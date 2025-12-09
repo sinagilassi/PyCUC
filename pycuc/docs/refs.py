@@ -2,6 +2,7 @@
 # ================
 
 # import module/packages
+from typing import Dict, List
 
 
 # local
@@ -10,7 +11,7 @@ class Refs:
 
     # vars
     # SECTION: Pressure Conversions
-    _pressure_conversions_ref = {
+    _pressure_conversions_ref: Dict[str, float] = {
         'bar': 1.0,
         'mbar': 1000.0,
         'ubar': 1000000.0,
@@ -30,7 +31,7 @@ class Refs:
     }
 
     # SECTION: Temperature Conversions
-    _temperature_conversions_ref = {
+    _temperature_conversions_ref: Dict[str, float] = {
         'C': 0,  # Celsius
         'F': 32,  # Fahrenheit
         'K': -273.15,  # Kelvin
@@ -38,7 +39,7 @@ class Refs:
     }
 
     # SECTION: Density Conversions
-    _density_conversions_ref = {
+    _density_conversions_ref: Dict[str, float] = {
         # mass per volume
         'g/cm3': 1.0,  # ! base unit
         'kg/dm3': 1.0,
@@ -60,7 +61,7 @@ class Refs:
     }
 
     # SECTION: Energy Conversions
-    _energy_conversions_ref = {
+    _energy_conversions_ref: Dict[str, float] = {
         'J': 1.0,
         'kJ': 0.001,
         'cal': 0.239006,
@@ -72,7 +73,7 @@ class Refs:
     }
 
     # SECTION: Gibbs Free Energy Conversions
-    _gibbs_free_energy_conversions_ref = {
+    _gibbs_free_energy_conversions_ref: Dict[str, float] = {
         # per mol and kmol
         'J/mol': 1.0,
         'kJ/mol': 0.001,
@@ -93,7 +94,7 @@ class Refs:
     }
 
     # SECTION: Enthalpy Conversions
-    _enthalpy_conversions_ref = {
+    _enthalpy_conversions_ref: Dict[str, float] = {
         # per mol and kmol
         'J/mol': 1.0,
         'kJ/mol': 0.001,
@@ -114,7 +115,7 @@ class Refs:
     }
 
     # SECTION: Heat capacity Conversions
-    _heat_capacity_conversions_ref = {
+    _heat_capacity_conversions_ref: Dict[str, float] = {
         # mass basis
         'J/kg.K': 1.0,
         'kJ/kg.K': 0.001,
@@ -136,7 +137,7 @@ class Refs:
     }
 
     # SECTION: Volume Conversions
-    _volume_conversions_ref = {
+    _volume_conversions_ref: Dict[str, float] = {
         'm3': 1.0,
         'L': 1000.0,
         'cm3': 1000000.0,
@@ -148,7 +149,7 @@ class Refs:
     }
 
     # SECTION: Mass Conversions
-    _mass_conversions_ref = {
+    _mass_conversions_ref: Dict[str, float] = {
         'kg': 1.0,
         'g': 1000.0,
         'mg': 1000000.0,
@@ -159,7 +160,7 @@ class Refs:
     }
 
     # SECTION: Power Conversions
-    _power_conversions_ref = {
+    _power_conversions_ref: Dict[str, float] = {
         'W': 1.0,
         'kW': 0.001,
         'MW': 1e-6,
@@ -170,7 +171,7 @@ class Refs:
     }
 
     # SECTION: Length Conversions
-    _length_conversions_ref = {
+    _length_conversions_ref: Dict[str, float] = {
         'm': 1.0,
         'cm': 100.0,
         'mm': 1000.0,
@@ -182,7 +183,7 @@ class Refs:
     }
 
     # SECTION: Force Conversions
-    _force_conversions_ref = {
+    _force_conversions_ref: Dict[str, float] = {
         'N': 1.0,
         'kN': 0.001,
         'lbf': 0.224809,
@@ -257,3 +258,48 @@ class Refs:
     @property
     def force_conversions_ref(self):
         return self._force_conversions_ref
+
+    @staticmethod
+    def get_reference():
+        return Refs._reference
+
+    @staticmethod
+    def get_reference_by_key(key: str):
+        reference = Refs.get_reference()
+        return reference.get(key, None)
+
+    @staticmethod
+    def get_reference_units_by_key(key: str) -> List[str]:
+        reference = Refs.get_reference()
+        ref = reference.get(key, None)
+        if ref is not None:
+            return list(ref.keys())
+        else:
+            return []
+
+    @staticmethod
+    def get_all_reference_units() -> List[str]:
+        reference = Refs.get_reference()
+        all_units = []
+        for key, ref in reference.items():
+            all_units.extend(list(ref.keys()))
+        return all_units
+
+    @staticmethod
+    def is_unit_in_reference(unit: str) -> bool:
+        all_units = Refs.get_all_reference_units()
+        # lowercase
+        all_units = [u.lower() for u in all_units]
+        unit = unit.lower()
+        return unit in all_units
+
+    @staticmethod
+    def is_unit_in_reference_by_key(
+        unit: str,
+        key: str
+    ) -> bool:
+        units = Refs.get_reference_units_by_key(key)
+        # lowercase
+        units = [u.lower() for u in units]
+        unit = unit.lower()
+        return unit in units
