@@ -1,9 +1,23 @@
 # import packages/modules
+import logging
 import os
-from typing import Dict, Any, Optional, Union
+from typing import Optional, List
+from .config import (
+    __version__,
+    __author__,
+    __email__,
+    __description__
+)
 # local
-from .docs import CustomUnitConverter, CustomUnitConverterX, Utils
-from .config import __version__, __author__, __email__, __description__
+from .docs import (
+    CustomUnitConverter,
+    CustomUnitConverterX,
+    Utils,
+    Refs
+)
+
+# NOTE: setup logger
+logger = logging.getLogger(__name__)
 
 
 def check_version():
@@ -264,3 +278,82 @@ def to(
 
     except Exception as e:
         raise Exception('Conversion failed, ', e)
+
+
+def all_units(
+        reference: Optional[str] = None
+) -> List[str]:
+    '''
+    Get all available units in the reference
+
+    Parameters
+    ----------
+    reference : str, optional
+        The reference name such as 'PRESSURE', 'TEMPERATURE', ...
+
+    Returns
+    -------
+    List[str]
+        A list of all available units
+
+    Raises
+    ------
+    Exception
+        If getting all units fails
+    '''
+    try:
+        # NOTE: validate reference
+        if reference:
+            if not isinstance(reference, str) or len(reference) == 0:
+                raise Exception('Reference not provided!')
+
+            # SECTION: get units based on reference
+            if reference.upper() in Refs._reference:
+                return Refs.get_reference_units_by_key(reference.upper())
+
+        # SECTION: get all units
+        return Refs.get_all_reference_units()
+    except Exception as e:
+        logger.error('Getting all units failed!, ', e)
+        return []
+
+
+def is_unit_available(
+        unit: str,
+        reference: Optional[str] = None
+) -> bool:
+    '''
+    Check if a unit is available in the reference
+
+    Parameters
+    ----------
+    unit : str
+        The unit to check
+    reference : str, optional
+        The reference name such as 'PRESSURE', 'TEMPERATURE', ...
+
+    Returns
+    -------
+    bool
+        True if the unit is available, False otherwise
+
+    Raises
+    ------
+    Exception
+        If checking unit availability fails
+    '''
+    try:
+        # NOTE: validate reference
+        if reference:
+            if not isinstance(reference, str) or len(reference) == 0:
+                raise Exception('Reference not provided!')
+
+            # SECTION: check unit based on reference
+            if reference.upper() in Refs._reference:
+                return Refs.is_unit_in_reference_by_key(unit, reference.upper())
+
+        # SECTION: check in all units
+        return Refs.is_unit_in_reference(unit)
+    except Exception as e:
+        logger.error('Checking unit availability failed!, ', e)
+        return False

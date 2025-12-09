@@ -92,6 +92,8 @@ class CustomUnitConverter(Utils, Refs):
 
             # sub reference
             sub_reference = None
+
+            # check
             if '::' in reference:
                 # split
                 reference_split = reference.split('::')
