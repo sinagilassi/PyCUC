@@ -53,7 +53,7 @@ reference: Dict[str, Any] = {
     'T': {
         'name': 'temperature',
         'symbol': 'T',
-        'unit': 'F0'
+        'unit': 'F'
     }
 }
 
