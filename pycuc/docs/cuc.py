@@ -35,6 +35,8 @@ class CustomUnitConverter(Utils, Refs):
     _length_conversions = {}
     # NOTE: force
     _force_conversions = {}
+    # NOTE: viscosity
+    _viscosity_conversions = {}
 
     # Initialize empty custom conversions dictionary
     _custom_conversions = {}
@@ -65,6 +67,7 @@ class CustomUnitConverter(Utils, Refs):
         self._power_conversions = self.power_conversions_ref
         self._length_conversions = self.length_conversions_ref
         self._force_conversions = self.force_conversions_ref
+        self._viscosity_conversions = self.viscosity_conversions_ref
 
     def check_reference(
         self,
@@ -115,7 +118,8 @@ class CustomUnitConverter(Utils, Refs):
                 'MASS': self._mass_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
-                'FORCE': self._force_conversions
+                'FORCE': self._force_conversions,
+                'VISCOSITY': self._viscosity_conversions
             }
 
             # take all keys
@@ -149,7 +153,11 @@ class CustomUnitConverter(Utils, Refs):
         except Exception as e:
             raise Exception('Checking references failed!, ', e)
 
-    def find_reference(self, from_unit: str, to_unit: str):
+    def find_reference(
+            self,
+            from_unit: str,
+            to_unit: str
+    ):
         '''
         Finds the conversion function
 
@@ -240,6 +248,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._force_conversions
             ):
                 reference = 'FORCE'
+            # NOTE: viscosity
+            elif (
+                from_unit in self._viscosity_conversions and
+                to_unit in self._viscosity_conversions
+            ):
+                reference = 'VISCOSITY'
             # SECTION: custom
             elif (
                 from_unit in self._custom_conversions and
@@ -322,6 +336,7 @@ class CustomUnitConverter(Utils, Refs):
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
                 'FORCE': self._force_conversions,
+                'VISCOSITY': self._viscosity_conversions,
                 # SECTION: custom
                 'CUSTOM': self._custom_conversions
             }
@@ -345,6 +360,7 @@ class CustomUnitConverter(Utils, Refs):
                 'POWER': lambda x: self.convert_X(x, 'POWER'),
                 'LENGTH': lambda x: self.convert_X(x, 'LENGTH'),
                 'FORCE': lambda x: self.convert_X(x, 'FORCE'),
+                'VISCOSITY': lambda x: self.convert_X(x, 'VISCOSITY'),
                 # SECTION: custom
                 'CUSTOM': lambda x: self.convert_custom(x)
             }

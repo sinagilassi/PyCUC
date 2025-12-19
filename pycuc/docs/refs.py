@@ -192,6 +192,19 @@ class Refs:
         'ozf': 35.274
     }
 
+    # SECTION: Viscosity Conversions
+    _viscosity_conversions_ref: Dict[str, float] = {
+        'P': 1.0,
+        'cP': 100.0,
+        'Pa.s': 0.1,
+        'mPa.s': 100.0,
+        'g/cm.s': 1.0,
+        'N.s/m2': 0.1,
+        'μP': 1e6,
+        'lb/ft.s': 0.671968,
+        'lb/ft.h': 241.908
+    }
+
     # SECTION: Reference
     _reference = {
         'PRESSURE': _pressure_conversions_ref,
@@ -205,7 +218,8 @@ class Refs:
         'MASS': _mass_conversions_ref,
         'POWER': _power_conversions_ref,
         'LENGTH': _length_conversions_ref,
-        'FORCE': _force_conversions_ref
+        'FORCE': _force_conversions_ref,
+        'VISCOSITY': _viscosity_conversions_ref
     }
 
     def __init__(self):
@@ -258,6 +272,10 @@ class Refs:
     @property
     def force_conversions_ref(self):
         return self._force_conversions_ref
+
+    @property
+    def viscosity_conversions_ref(self):
+        return self._viscosity_conversions_ref
 
     @staticmethod
     def get_reference():
