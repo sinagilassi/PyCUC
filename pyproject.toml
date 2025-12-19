@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycuc"
-version = "2.2.0"
+version = "2.3.0"
 description = "PyCUC: A lightweight Python package for creating custom unit conversions. Easily define and convert between units with simplicity and flexibility."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -40,16 +40,6 @@ classifiers = [
 dependencies = [
     "pandas>=2.3.3",
     "pyyaml>=6.0.3",
-]
-
-[project.optional-dependencies]
-dev = [
-    "rich>=14.2.0",
-]
-
-[tool.uv]
-dev-dependencies = [
-    "rich>=14.2.0",
 ]
 
 [project.urls]
