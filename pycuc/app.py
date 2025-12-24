@@ -127,7 +127,10 @@ def go(reference_file: Optional[str] = None) -> CustomUnitConverterX:
         raise Exception("Initializing failed!, ", e)
 
 
-def create_cuc(value: float, unit: str) -> CustomUnitConverter:
+def create_cuc(
+        value: float,
+        unit: str
+) -> CustomUnitConverter:
     '''
     Define a CustomUnitConverter object
 
@@ -182,7 +185,6 @@ def convert_from_to(
     from_unit: str,
     to_unit: str,
     reference: Optional[str] = None,
-    reference_fileOptional: Optional[str] = None
 ) -> float:
     '''
     Convert a value from one unit to another
@@ -197,8 +199,6 @@ def convert_from_to(
         The unit to convert to
     reference : str, optional
         The reference name such as 'PRESSURE', 'TEMPERATURE', 'CUSTOM'
-    reference_file : str, optional
-        The path to the reference file
 
     Returns
     -------
@@ -234,7 +234,6 @@ def to(
     value: float,
     unit_conversion_block: str,
     reference: Optional[str] = None,
-    reference_file: Optional[str] = None
 ) -> float:
     '''
     Convert a value from one unit to another using `unit conversion block`
@@ -247,8 +246,6 @@ def to(
         The block shows `(from_unit => to_unit)` such as (MPa => Pa), (K => C)
     reference : str, optional
         The reference name such as 'PRESSURE', 'TEMPERATURE', 'CUSTOM'
-    reference_file : str, optional
-        The reference file path
 
     Returns
     -------
