@@ -205,6 +205,40 @@ class Refs:
         'lb/ft.h': 241.908
     }
 
+    # SECTION: Flow-rate Conversions
+    _flow_rate_conversions_ref: Dict[str, float] = {
+        # molar basis
+        "mol/s": 1.0,
+        "kmol/s": 0.001,
+        "mol/min": 60.0,
+        "kmol/min": 0.06,
+        "mol/h": 3600.0,
+        "kmol/h": 3.6,
+        # mass basis
+        "kg/s": 1.0,
+        "g/s": 1000.0,
+        "kg/min": 60.0,
+        "g/min": 60000.0,
+        "kg/h": 3600.0,
+        "g/h": 3600000.0,
+        # volume basis
+        "m3/s": 1.0,
+        "L/s": 1000.0,
+        "l/s": 1000.0,
+        "m3/min": 60.0,
+        "L/min": 60000.0,
+        "l/min": 60000.0,
+        "m3/h": 3600.0,
+        "L/h": 3600000.0,
+        "l/h": 3600000.0,
+        "mL/s": 1e6,
+        "mL/min": 6e7,
+        "mL/h": 3.6e9,
+        "ft3/s": 35.3147,
+        "ft3/min": 2118.88,
+        "ft3/h": 127132.8
+    }
+
     # SECTION: Reference
     _reference = {
         'PRESSURE': _pressure_conversions_ref,
@@ -219,7 +253,8 @@ class Refs:
         'POWER': _power_conversions_ref,
         'LENGTH': _length_conversions_ref,
         'FORCE': _force_conversions_ref,
-        'VISCOSITY': _viscosity_conversions_ref
+        'VISCOSITY': _viscosity_conversions_ref,
+        'FLOW_RATE': _flow_rate_conversions_ref
     }
 
     def __init__(self):
@@ -276,6 +311,10 @@ class Refs:
     @property
     def viscosity_conversions_ref(self):
         return self._viscosity_conversions_ref
+
+    @property
+    def flow_rate_conversions_ref(self):
+        return self._flow_rate_conversions_ref
 
     @staticmethod
     def get_reference():
