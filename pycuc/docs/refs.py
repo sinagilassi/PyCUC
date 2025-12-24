@@ -20,6 +20,7 @@ class Refs:
         'kPa': 100.0,
         'MPa': 0.1,
         'kg/cm2': 1.01972,
+        'kg/cm²': 1.01972,  # with unicode
         'atm': 0.986923,
         'mmHg': 750.062,
         'mmH2O': 10197.162129779,
@@ -42,22 +43,51 @@ class Refs:
     _density_conversions_ref: Dict[str, float] = {
         # mass per volume
         'g/cm3': 1.0,  # ! base unit
+        'g/cm³': 1.0,  # ! base unit with unicode
+        'kg/L': 1.0,
+        'kg/dL': 10.0,
+        'g/L': 0.001,
+        'g/l': 0.001,
+        'g/mL': 1.0,
+        'g/ml': 1.0,
         'kg/dm3': 1.0,
+        'kg/dm³': 1.0,  # with unicode
         't/m3': 1.0,
+        't/m³': 1.0,  # with unicode
+        'tonne/m3': 1.0,
+        'tonne/m³': 1.0,  # with unicode
         'kg/m3': 1000.0,
+        'kg/m³': 1000.0,  # with unicode
         'lb/ft3': 62.42796,
-        'lb/in3': 0.0361273,
+        'lb/ft³': 62.42796,  # with unicode
+        'lb/in3': 27.6799,
+        'lb/in³': 27.6799,  # with unicode
+        # Optional common additions
+        # specific gravity (dimensionless, relative to water at 1 g/cm³)
+        'sg': 1.0,
+        'oz/gal': 133.526,       # US oz/gal (fluid) to g/cm³ — if needed later
         # mole per volume
         "kmol/m3": 1.0,  # ! base unit
+        "kmol/m³": 1.0,  # ! base unit with unicode
         "mol/m3": 1000.0,
+        "mol/m³": 1000.0,  # with unicode
         "kmol/dm3": 0.001,
+        "kmol/dm³": 0.001,  # with unicode
         "mol/dm3": 1.0,
+        "mol/dm³": 1.0,  # with unicode
         "kmol/cm3": 1e-6,
+        "kmol/cm³": 1e-6,  # with unicode
         "mol/cm3": 0.001,
+        "mol/cm³": 0.001,  # with unicode
         "mol/L": 1.0,
+        "mol/l": 1.0,
+        "M": 1.0,  # molarity shorthand
         "kmol/L": 0.001,
+        "kmol/l": 0.001,
         "mol/ft3": 35.3147,
-        "kmol/ft3": 0.0353147
+        "mol/ft³": 35.3147,  # with unicode
+        "kmol/ft3": 0.0353147,
+        "kmol/ft³": 0.0353147,  # with unicode
     }
 
     # SECTION: Energy Conversions
@@ -139,11 +169,16 @@ class Refs:
     # SECTION: Volume Conversions
     _volume_conversions_ref: Dict[str, float] = {
         'm3': 1.0,
+        'm³': 1.0,          # if you want Unicode
         'L': 1000.0,
         'cm3': 1000000.0,
+        'cm³': 1000000.0,  # if you want Unicode
         'dm3': 1000.0,
+        'dm³': 1000.0,  # if you want Unicode
         'ft3': 35.3147,
+        'ft³': 35.3147,  # if you want Unicode
         'in3': 61023.7,
+        'in³': 61023.7,  # if you want Unicode
         'gal(US)': 264.172,
         'gal(UK)': 219.969
     }
@@ -200,6 +235,7 @@ class Refs:
         'mPa.s': 100.0,
         'g/cm.s': 1.0,
         'N.s/m2': 0.1,
+        'N.s/m²': 0.1,
         'μP': 1e6,
         'lb/ft.s': 0.671968,
         'lb/ft.h': 241.908
@@ -209,34 +245,73 @@ class Refs:
     _flow_rate_conversions_ref: Dict[str, float] = {
         # molar basis
         "mol/s": 1.0,
+        "mmol/s": 1000.0,
         "kmol/s": 0.001,
         "mol/min": 60.0,
         "kmol/min": 0.06,
         "mol/h": 3600.0,
+        "mol/hr": 3600.0,
         "kmol/h": 3.6,
+        "kmol/hr": 3.6,
+        "kmol/day": 86400.0,
         # mass basis
         "kg/s": 1.0,
         "g/s": 1000.0,
         "kg/min": 60.0,
         "g/min": 60000.0,
         "kg/h": 3600.0,
+        "kg/hr": 3600.0,
         "g/h": 3600000.0,
+        "g/hr": 3600000.0,
+        "tonne/s": 0.001,
+        "lb/s": 453.592,
+        "lbm/s": 453.592,
+        "slug/s": 14.5939,
+        "lbm/min": 27215.4,
+        "slug/min": 875.632,
+        "lbm/h": 1632924.0,
+        "lbm/hr": 1632924.0,
+        "slug/h": 52537.9,
+        "slug/hr": 52537.9,
+        "tonne/day": 86.4,
+        "lbm/day": 39.4624e6,
+        "slug/day": 1260912.0,
+        "tonne/h": 3.6,
+        "tonne/hr": 3.6,
         # volume basis
         "m3/s": 1.0,
+        "m³/s": 1.0,          # if you want Unicode
         "L/s": 1000.0,
         "l/s": 1000.0,
+        "cm3/s": 1e6,
+        "cm³/s": 1e6,        # if you want Unicode
+        "mL/s": 1e6,
         "m3/min": 60.0,
+        "m³/min": 60.0,      # if you want Unicode
         "L/min": 60000.0,
         "l/min": 60000.0,
-        "m3/h": 3600.0,
-        "L/h": 3600000.0,
-        "l/h": 3600000.0,
-        "mL/s": 1e6,
         "mL/min": 6e7,
+        "m3/h": 3600.0,
+        "m³/h": 3600.0,      # if you want Unicode
+        "m3/hr": 3600.0,
+        "m³/hr": 3600.0,      # if you want Unicode
+        "L/h": 3600000.0,
+        "L/hr": 3600000.0,
+        "l/h": 3600000.0,
+        "l/hr": 3600000.0,
         "mL/h": 3.6e9,
         "ft3/s": 35.3147,
+        "ft³/s": 35.3147,      # if you want Unicode
         "ft3/min": 2118.88,
-        "ft3/h": 127132.8
+        "ft³/min": 2118.88,    # if you want Unicode
+        "ft3/h": 127132.8,
+        "ft³/h": 127132.8,     # if you want Unicode
+        "ft3/hr": 127132.8,
+        "ft³/hr": 127132.8,     # if you want Unicode
+        "gal/s": 264.172,
+        "gal/min": 15850.3,
+        "bbl/day": 1.84013e-6,   # slightly more precise
+        "barrel/day": 1.84013e-6,
     }
 
     # SECTION: Reference
