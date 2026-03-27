@@ -3,9 +3,10 @@ import pycuc
 import sys
 from rich import print
 
-# NOTE: avoid Windows cp1252 console errors for units like μM
-# if hasattr(sys.stdout, 'reconfigure'):
-#     sys.stdout.reconfigure(encoding='utf-8')
+# NOTE: avoid Windows cp1252 console errors for unicode units
+_reconfigure = getattr(sys.stdout, 'reconfigure', None)
+if callable(_reconfigure):
+    _reconfigure(encoding='utf-8')
 
 # check version
 print(pycuc.__version__)
@@ -13,7 +14,7 @@ print(pycuc.__version__)
 # =====================================
 # CHECK REFERENCES
 # =====================================
-# gibbs free energy
+# concentration
 print(pycuc.check_reference('CONCENTRATION'))
 
 
@@ -47,10 +48,10 @@ res = pycuc.to(1, 'pM => mol/m3')
 print(f"1 pM = {res} mol/m3")
 
 # unicode aliases
-res = pycuc.to(1, 'μM => mol/m3')
-print(f"1 μM = {res} mol/m3")
-res = pycuc.to(1, 'µM => mol/m3')
-print(f"1 µM = {res} mol/m3")
+res = pycuc.to(1, '\u03BCM => mol/m3')
+print(f"1 \u03BCM = {res} mol/m3")
+res = pycuc.to(1, '\u00B5M => mol/m3')
+print(f"1 \u00B5M = {res} mol/m3")
 
 # mol/XXX conversions
 res = pycuc.to(1, 'mol/m3 => mol/cm3')
