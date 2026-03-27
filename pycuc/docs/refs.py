@@ -84,10 +84,39 @@ class Refs:
         "M": 1.0,  # molarity shorthand
         "kmol/L": 0.001,
         "kmol/l": 0.001,
-        "mol/ft3": 35.3147,
-        "mol/ft³": 35.3147,  # with unicode
-        "kmol/ft3": 0.0353147,
-        "kmol/ft³": 0.0353147,  # with unicode
+        "mol/ft3": 28.3168466,
+        "mol/ft³": 28.3168466,  # with unicode
+        "kmol/ft3": 0.0283168466,
+        "kmol/ft³": 0.0283168466,  # with unicode
+    }
+
+    # SECTION: Concentration Conversions (mole based)
+    _concentration_conversions_ref: Dict[str, float] = {
+        # NOTE: base is mol/m3
+        'mol/m3': 1.0,   # ! base unit
+        'mol/m\u00B3': 1.0,   # ! base unit with unicode
+        # mol/XXX forms
+        'mol/cm3': 1.0e-6,
+        'mol/cm\u00B3': 1.0e-6,  # with unicode
+        'mol/dm3': 0.001,
+        'mol/dm\u00B3': 0.001,   # with unicode
+        'mol/L': 0.001,
+        'mol/l': 0.001,
+        'mol/mL': 1.0e-6,
+        'mol/ml': 1.0e-6,
+        'mol/ft3': 0.0283168466,
+        'mol/ft\u00B3': 0.0283168466,  # with unicode
+        # kmol basis
+        'kmol/m3': 0.001,
+        'kmol/m\u00B3': 0.001,  # with unicode
+        # molarity shorthand
+        'M': 0.001,
+        'mM': 1.0,
+        'uM': 1000.0,
+        '\u03BCM': 1000.0,  # Greek mu
+        '\u00B5M': 1000.0,  # micro sign
+        'nM': 1.0e6,
+        'pM': 1.0e9
     }
 
     # SECTION: Energy Conversions
@@ -319,6 +348,7 @@ class Refs:
         'PRESSURE': _pressure_conversions_ref,
         'TEMPERATURE': _temperature_conversions_ref,
         'DENSITY': _density_conversions_ref,
+        'CONCENTRATION': _concentration_conversions_ref,
         'ENERGY': _energy_conversions_ref,
         'GIBBS_FREE_ENERGY': _gibbs_free_energy_conversions_ref,
         'ENTHALPY': _enthalpy_conversions_ref,
@@ -346,6 +376,10 @@ class Refs:
     @property
     def density_conversions_ref(self):
         return self._density_conversions_ref
+
+    @property
+    def concentration_conversions_ref(self):
+        return self._concentration_conversions_ref
 
     @property
     def energy_conversions_ref(self):

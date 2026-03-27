@@ -17,6 +17,8 @@ class CustomUnitConverter(Utils, Refs):
     _temperature_conversions = {}
     # NOTE: density
     _density_conversions = {}
+    # NOTE: concentration
+    _concentration_conversions = {}
     # NOTE: energy
     _energy_conversions = {}
     # NOTE: gibbs free energy
@@ -60,6 +62,7 @@ class CustomUnitConverter(Utils, Refs):
         self._pressure_conversions = self.pressure_conversions_ref
         self._temperature_conversions = self.temperature_conversions_ref
         self._density_conversions = self.density_conversions_ref
+        self._concentration_conversions = self.concentration_conversions_ref
         self._energy_conversions = self.energy_conversions_ref
         self._gibbs_free_energy_conversions = self.gibbs_free_energy_conversions_ref
         self._enthalpy_conversions = self.enthalpy_conversions_ref
@@ -113,6 +116,7 @@ class CustomUnitConverter(Utils, Refs):
                 'TEMPERATURE': self._temperature_conversions,
                 'CUSTOM': self._custom_conversions_full,
                 'DENSITY': self._density_conversions,
+                'CONCENTRATION': self._concentration_conversions,
                 'ENERGY': self._energy_conversions,
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
@@ -198,6 +202,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._density_conversions
             ):
                 reference = 'DENSITY'
+            # NOTE: concentration
+            elif (
+                from_unit in self._concentration_conversions and
+                to_unit in self._concentration_conversions
+            ):
+                reference = 'CONCENTRATION'
             # NOTE: energy
             elif (
                 from_unit in self._energy_conversions and
@@ -337,6 +347,7 @@ class CustomUnitConverter(Utils, Refs):
                 'PRESSURE': self._pressure_conversions,
                 'TEMPERATURE': self._temperature_conversions,
                 'DENSITY': self._density_conversions,
+                'CONCENTRATION': self._concentration_conversions,
                 'ENERGY': self._energy_conversions,
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
@@ -362,6 +373,7 @@ class CustomUnitConverter(Utils, Refs):
                 'PRESSURE': lambda x: self.convert_pressure(x),
                 'TEMPERATURE': lambda x: self.convert_temperature(x),
                 'DENSITY': lambda x: self.convert_X(x, 'DENSITY'),
+                'CONCENTRATION': lambda x: self.convert_X(x, 'CONCENTRATION'),
                 'ENERGY': lambda x: self.convert_X(x, 'ENERGY'),
                 'GIBBS_FREE_ENERGY': lambda x: self.convert_X(x, 'GIBBS_FREE_ENERGY'),
                 'ENTHALPY': lambda x: self.convert_X(x, 'ENTHALPY'),
@@ -417,7 +429,9 @@ class CustomUnitConverter(Utils, Refs):
             return float(self.value) / from_factor * to_factor
 
         except Exception as e:
-            raise Exception('Pressure conversion failed!, ', e)
+            raise ValueError(
+                f"{reference_name} conversion failed from '{self.unit}' to '{to_unit}': {e}"
+            ) from e
 
     def convert_pressure(self, to_unit: str):
         '''
