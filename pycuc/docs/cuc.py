@@ -27,6 +27,8 @@ class CustomUnitConverter(Utils, Refs):
     _enthalpy_conversions = {}
     # NOTE: heat capacity
     _heat_capacity_conversions = {}
+    # NOTE: heat transfer coefficient
+    _heat_transfer_coefficient_conversions = {}
     # NOTE: volume
     _volume_conversions = {}
     # NOTE: mass
@@ -35,6 +37,8 @@ class CustomUnitConverter(Utils, Refs):
     _power_conversions = {}
     # NOTE: length
     _length_conversions = {}
+    # NOTE: area
+    _area_conversions = {}
     # NOTE: force
     _force_conversions = {}
     # NOTE: viscosity
@@ -67,10 +71,12 @@ class CustomUnitConverter(Utils, Refs):
         self._gibbs_free_energy_conversions = self.gibbs_free_energy_conversions_ref
         self._enthalpy_conversions = self.enthalpy_conversions_ref
         self._heat_capacity_conversions = self.heat_capacity_conversions_ref
+        self._heat_transfer_coefficient_conversions = self.heat_transfer_coefficient_ref
         self._volume_conversions = self.volume_conversions_ref
         self._mass_conversions = self.mass_conversions_ref
         self._power_conversions = self.power_conversions_ref
         self._length_conversions = self.length_conversions_ref
+        self._area_conversions = self.area_conversions_ref
         self._force_conversions = self.force_conversions_ref
         self._viscosity_conversions = self.viscosity_conversions_ref
         self._flow_rate_conversions = self.flow_rate_conversions_ref
@@ -121,10 +127,12 @@ class CustomUnitConverter(Utils, Refs):
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
+                'HEAT_TRANSFER_COEFFICIENT': self._heat_transfer_coefficient_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
+                'AREA': self._area_conversions,
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
                 'FLOW_RATE': self._flow_rate_conversions
@@ -232,6 +240,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._heat_capacity_conversions
             ):
                 reference = 'HEAT_CAPACITY'
+            # NOTE: heat transfer coefficient
+            elif (
+                from_unit in self._heat_transfer_coefficient_conversions and
+                to_unit in self._heat_transfer_coefficient_conversions
+            ):
+                reference = 'HEAT_TRANSFER_COEFFICIENT'
             # NOTE: volume
             elif (
                 from_unit in self._volume_conversions and
@@ -256,6 +270,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._length_conversions
             ):
                 reference = 'LENGTH'
+            # NOTE: area
+            elif (
+                from_unit in self._area_conversions and
+                to_unit in self._area_conversions
+            ):
+                reference = 'AREA'
             # NOTE: force
             elif (
                 from_unit in self._force_conversions and
@@ -352,10 +372,12 @@ class CustomUnitConverter(Utils, Refs):
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
+                'HEAT_TRANSFER_COEFFICIENT': self._heat_transfer_coefficient_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
+                'AREA': self._area_conversions,
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
                 'FLOW_RATE': self._flow_rate_conversions,
@@ -378,10 +400,12 @@ class CustomUnitConverter(Utils, Refs):
                 'GIBBS_FREE_ENERGY': lambda x: self.convert_X(x, 'GIBBS_FREE_ENERGY'),
                 'ENTHALPY': lambda x: self.convert_X(x, 'ENTHALPY'),
                 'HEAT_CAPACITY': lambda x: self.convert_X(x, 'HEAT_CAPACITY'),
+                'HEAT_TRANSFER_COEFFICIENT': lambda x: self.convert_X(x, 'HEAT_TRANSFER_COEFFICIENT'),
                 'VOLUME': lambda x: self.convert_X(x, 'VOLUME'),
                 'MASS': lambda x: self.convert_X(x, 'MASS'),
                 'POWER': lambda x: self.convert_X(x, 'POWER'),
                 'LENGTH': lambda x: self.convert_X(x, 'LENGTH'),
+                'AREA': lambda x: self.convert_X(x, 'AREA'),
                 'FORCE': lambda x: self.convert_X(x, 'FORCE'),
                 'VISCOSITY': lambda x: self.convert_X(x, 'VISCOSITY'),
                 'FLOW_RATE': lambda x: self.convert_X(x, 'FLOW_RATE'),

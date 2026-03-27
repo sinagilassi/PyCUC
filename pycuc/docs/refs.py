@@ -195,6 +195,35 @@ class Refs:
         'kJ/kmol.K': 1.0,
     }
 
+    _heat_transfer_coefficient_ref: Dict[str, float] = {
+        # base
+        'W/m2.K': 1.0,
+        'W/m².K': 1.0,
+        'W/m2K': 1.0,
+        'W/m²K': 1.0,
+
+        # SI scaled
+        'kW/m2.K': 0.001,
+        'kW/m².K': 0.001,
+
+        # area variations
+        'W/cm2.K': 1.0e-4,
+        'W/cm².K': 1.0e-4,
+        'W/mm2.K': 1.0e-6,
+        'W/mm².K': 1.0e-6,
+        'W/ft2.K': 0.092903,
+        'W/ft².K': 0.092903,
+
+        # imperial
+        'BTU/(hr.ft2.F)': 0.1761101838,
+        'BTU/(hr.ft².F)': 0.1761101838,
+        'BTU/hr.ft2.F': 0.1761101838,
+
+        # thermal engineering
+        'kcal/(hr.m2.K)': 0.859845,
+        'kcal/(hr.m².K)': 0.859845,
+    }
+
     # SECTION: Volume Conversions
     _volume_conversions_ref: Dict[str, float] = {
         'm3': 1.0,
@@ -244,6 +273,29 @@ class Refs:
         'in': 39.3701,
         'yd': 1.09361,
         'mi': 0.000621371
+    }
+
+    # SECTION: Area Conversions
+    _area_conversions_ref: Dict[str, float] = {
+        'm2': 1.0,  # ! base unit
+        'm\u00B2': 1.0,  # with unicode
+        'cm2': 10000.0,
+        'cm\u00B2': 10000.0,  # with unicode
+        'mm2': 1.0e6,
+        'mm\u00B2': 1.0e6,  # with unicode
+        'km2': 1.0e-6,
+        'km\u00B2': 1.0e-6,  # with unicode
+        'dm2': 100.0,
+        'dm\u00B2': 100.0,  # with unicode
+        'ft2': 10.7639,
+        'ft\u00B2': 10.7639,  # with unicode
+        'in2': 1550.0031,
+        'in\u00B2': 1550.0031,  # with unicode
+        'yd2': 1.19599,
+        'yd\u00B2': 1.19599,  # with unicode
+        'ha': 1.0e-4,
+        'hectare': 1.0e-4,
+        'acre': 2.47105e-4
     }
 
     # SECTION: Force Conversions
@@ -353,10 +405,12 @@ class Refs:
         'GIBBS_FREE_ENERGY': _gibbs_free_energy_conversions_ref,
         'ENTHALPY': _enthalpy_conversions_ref,
         'HEAT_CAPACITY': _heat_capacity_conversions_ref,
+        'HEAT_TRANSFER_COEFFICIENT': _heat_transfer_coefficient_ref,
         'VOLUME': _volume_conversions_ref,
         'MASS': _mass_conversions_ref,
         'POWER': _power_conversions_ref,
         'LENGTH': _length_conversions_ref,
+        'AREA': _area_conversions_ref,
         'FORCE': _force_conversions_ref,
         'VISCOSITY': _viscosity_conversions_ref,
         'FLOW_RATE': _flow_rate_conversions_ref
@@ -398,6 +452,10 @@ class Refs:
         return self._heat_capacity_conversions_ref
 
     @property
+    def heat_transfer_coefficient_ref(self):
+        return self._heat_transfer_coefficient_ref
+
+    @property
     def volume_conversions_ref(self):
         return self._volume_conversions_ref
 
@@ -412,6 +470,10 @@ class Refs:
     @property
     def length_conversions_ref(self):
         return self._length_conversions_ref
+
+    @property
+    def area_conversions_ref(self):
+        return self._area_conversions_ref
 
     @property
     def force_conversions_ref(self):
