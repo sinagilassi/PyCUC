@@ -33,6 +33,8 @@ class CustomUnitConverter(Utils, Refs):
     _volume_conversions = {}
     # NOTE: mass
     _mass_conversions = {}
+    # NOTE: molecular weight
+    _molecular_weight_conversions = {}
     # NOTE: power
     _power_conversions = {}
     # NOTE: length
@@ -74,6 +76,7 @@ class CustomUnitConverter(Utils, Refs):
         self._heat_transfer_coefficient_conversions = self.heat_transfer_coefficient_ref
         self._volume_conversions = self.volume_conversions_ref
         self._mass_conversions = self.mass_conversions_ref
+        self._molecular_weight_conversions = self.molecular_weight_conversions_ref
         self._power_conversions = self.power_conversions_ref
         self._length_conversions = self.length_conversions_ref
         self._area_conversions = self.area_conversions_ref
@@ -130,6 +133,7 @@ class CustomUnitConverter(Utils, Refs):
                 'HEAT_TRANSFER_COEFFICIENT': self._heat_transfer_coefficient_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
+                'MOLECULAR_WEIGHT': self._molecular_weight_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
                 'AREA': self._area_conversions,
@@ -258,6 +262,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._mass_conversions
             ):
                 reference = 'MASS'
+            # NOTE: molecular weight
+            elif (
+                from_unit in self._molecular_weight_conversions and
+                to_unit in self._molecular_weight_conversions
+            ):
+                reference = 'MOLECULAR_WEIGHT'
             # NOTE: power
             elif (
                 from_unit in self._power_conversions and
@@ -375,6 +385,7 @@ class CustomUnitConverter(Utils, Refs):
                 'HEAT_TRANSFER_COEFFICIENT': self._heat_transfer_coefficient_conversions,
                 'VOLUME': self._volume_conversions,
                 'MASS': self._mass_conversions,
+                'MOLECULAR_WEIGHT': self._molecular_weight_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
                 'AREA': self._area_conversions,
@@ -403,6 +414,7 @@ class CustomUnitConverter(Utils, Refs):
                 'HEAT_TRANSFER_COEFFICIENT': lambda x: self.convert_X(x, 'HEAT_TRANSFER_COEFFICIENT'),
                 'VOLUME': lambda x: self.convert_X(x, 'VOLUME'),
                 'MASS': lambda x: self.convert_X(x, 'MASS'),
+                'MOLECULAR_WEIGHT': lambda x: self.convert_X(x, 'MOLECULAR_WEIGHT'),
                 'POWER': lambda x: self.convert_X(x, 'POWER'),
                 'LENGTH': lambda x: self.convert_X(x, 'LENGTH'),
                 'AREA': lambda x: self.convert_X(x, 'AREA'),

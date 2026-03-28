@@ -254,6 +254,17 @@ class Refs:
         'st': 0.157473
     }
 
+    # SECTION: Molecular Weight Conversions
+    _molecular_weight_conversions_ref: Dict[str, float] = {
+        # NOTE: base is g/mol
+        'g/mol': 1.0,     # ! base unit
+        'kg/kmol': 1.0,
+        'kg/mol': 0.001,
+        'mg/mol': 1000.0,
+        'g/kmol': 1000.0,
+        'lb/lbmol': 1.0,
+    }
+
     # SECTION: Power Conversions
     _power_conversions_ref: Dict[str, float] = {
         'W': 1.0,
@@ -410,6 +421,7 @@ class Refs:
         'HEAT_TRANSFER_COEFFICIENT': _heat_transfer_coefficient_ref,
         'VOLUME': _volume_conversions_ref,
         'MASS': _mass_conversions_ref,
+        'MOLECULAR_WEIGHT': _molecular_weight_conversions_ref,
         'POWER': _power_conversions_ref,
         'LENGTH': _length_conversions_ref,
         'AREA': _area_conversions_ref,
@@ -464,6 +476,10 @@ class Refs:
     @property
     def mass_conversions_ref(self):
         return self._mass_conversions_ref
+
+    @property
+    def molecular_weight_conversions_ref(self):
+        return self._molecular_weight_conversions_ref
 
     @property
     def power_conversions_ref(self):
