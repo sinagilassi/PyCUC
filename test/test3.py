@@ -35,6 +35,7 @@ print("-"*50)
 
 # ! density
 print(pycuc.to(1, 'g/cm3 => kg/m3'))
+print(pycuc.to(1, 'g/cm³ => g/m3'))
 # ! energy
 print(pycuc.to(1, 'kcal => J'))
 # ! heat capacity

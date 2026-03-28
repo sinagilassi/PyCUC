@@ -45,6 +45,8 @@ class Refs:
         'g/cm3': 1.0,  # ! base unit
         'g/cm³': 1.0,  # ! base unit with unicode
         'kg/L': 1.0,
+        'g/m3': 1000000,
+        'g/m³': 1000000,  # with unicode
         'kg/dL': 10.0,
         'g/L': 0.001,
         'g/l': 0.001,
