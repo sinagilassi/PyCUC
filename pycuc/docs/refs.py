@@ -257,12 +257,21 @@ class Refs:
     # SECTION: Molecular Weight Conversions
     _molecular_weight_conversions_ref: Dict[str, float] = {
         # NOTE: base is g/mol
-        'g/mol': 1.0,     # ! base unit
+        'g/mol': 1.0,        # ! base unit
+
+        # Same numerical value
         'kg/kmol': 1.0,
-        'kg/mol': 0.001,
-        'mg/mol': 1000.0,
-        'g/kmol': 1000.0,
         'lb/lbmol': 1.0,
+
+        # Larger unit (value decreases)
+        'kg/mol': 0.001,     # 1 g/mol = 0.001 kg/mol
+
+        # Smaller units (value increases)
+        'mg/mol': 1000.0,    # 1 g/mol = 1000 mg/mol
+        'g/kmol': 1000.0,    # 1 g/mol = 1000 g/kmol
+
+        # Imperial mass per mole
+        'lb/mol': 0.00220462,   # 1 g/mol = 0.00220462 lb/mol
     }
 
     # SECTION: Power Conversions
