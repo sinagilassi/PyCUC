@@ -133,6 +133,26 @@ class Refs:
         'ft-lb': 0.737562
     }
 
+    # SECTION: Energy rate Conversions
+    _energy_rate_conversions_ref: Dict[str, float] = {
+        'W': 1.0,
+        'kW': 0.001,
+        'MW': 1e-6,
+        'GW': 1e-9,
+        'HP': 0.00134102,
+        # BTU
+        'BTU/s': 0.000947817,
+        'BTU/min': 0.056869,
+        'BTU/h': 3.41214,
+        # ft-lb
+        'ft-lb/min': 0.737562,
+        # cal
+        'cal/s': 0.239006,
+        'kcal/s': 0.000239006,
+        'cal/min': 0.00398344,
+        'kcal/min': 3.98344e-6,
+    }
+
     # SECTION: Gibbs Free Energy Conversions
     _gibbs_free_energy_conversions_ref: Dict[str, float] = {
         # per mol and kmol
@@ -424,6 +444,7 @@ class Refs:
         'DENSITY': _density_conversions_ref,
         'CONCENTRATION': _concentration_conversions_ref,
         'ENERGY': _energy_conversions_ref,
+        'ENERGY_RATE': _energy_rate_conversions_ref,
         'GIBBS_FREE_ENERGY': _gibbs_free_energy_conversions_ref,
         'ENTHALPY': _enthalpy_conversions_ref,
         'HEAT_CAPACITY': _heat_capacity_conversions_ref,
@@ -461,6 +482,10 @@ class Refs:
     @property
     def energy_conversions_ref(self):
         return self._energy_conversions_ref
+
+    @property
+    def energy_rate_conversions_ref(self):
+        return self._energy_rate_conversions_ref
 
     @property
     def gibbs_free_energy_conversions_ref(self):

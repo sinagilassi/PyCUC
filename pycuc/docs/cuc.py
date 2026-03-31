@@ -21,6 +21,8 @@ class CustomUnitConverter(Utils, Refs):
     _concentration_conversions = {}
     # NOTE: energy
     _energy_conversions = {}
+    # NOTE: energy rate
+    _energy_rate_conversions = {}
     # NOTE: gibbs free energy
     _gibbs_free_energy_conversions = {}
     # NOTE: enthalpy
@@ -70,6 +72,7 @@ class CustomUnitConverter(Utils, Refs):
         self._density_conversions = self.density_conversions_ref
         self._concentration_conversions = self.concentration_conversions_ref
         self._energy_conversions = self.energy_conversions_ref
+        self._energy_rate_conversions = self.energy_rate_conversions_ref
         self._gibbs_free_energy_conversions = self.gibbs_free_energy_conversions_ref
         self._enthalpy_conversions = self.enthalpy_conversions_ref
         self._heat_capacity_conversions = self.heat_capacity_conversions_ref
@@ -127,6 +130,7 @@ class CustomUnitConverter(Utils, Refs):
                 'DENSITY': self._density_conversions,
                 'CONCENTRATION': self._concentration_conversions,
                 'ENERGY': self._energy_conversions,
+                'ENERGY_RATE': self._energy_rate_conversions,
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
@@ -226,6 +230,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._energy_conversions
             ):
                 reference = 'ENERGY'
+            # NOTE: energy rate
+            elif (
+                from_unit in self._energy_rate_conversions and
+                to_unit in self._energy_rate_conversions
+            ):
+                reference = 'ENERGY_RATE'
             # NOTE: gibbs free energy
             elif (
                 from_unit in self._gibbs_free_energy_conversions and
@@ -379,6 +389,7 @@ class CustomUnitConverter(Utils, Refs):
                 'DENSITY': self._density_conversions,
                 'CONCENTRATION': self._concentration_conversions,
                 'ENERGY': self._energy_conversions,
+                'ENERGY_RATE': self._energy_rate_conversions,
                 'GIBBS_FREE_ENERGY': self._gibbs_free_energy_conversions,
                 'ENTHALPY': self._enthalpy_conversions,
                 'HEAT_CAPACITY': self._heat_capacity_conversions,
@@ -408,6 +419,7 @@ class CustomUnitConverter(Utils, Refs):
                 'DENSITY': lambda x: self.convert_X(x, 'DENSITY'),
                 'CONCENTRATION': lambda x: self.convert_X(x, 'CONCENTRATION'),
                 'ENERGY': lambda x: self.convert_X(x, 'ENERGY'),
+                'ENERGY_RATE': lambda x: self.convert_X(x, 'ENERGY_RATE'),
                 'GIBBS_FREE_ENERGY': lambda x: self.convert_X(x, 'GIBBS_FREE_ENERGY'),
                 'ENTHALPY': lambda x: self.convert_X(x, 'ENTHALPY'),
                 'HEAT_CAPACITY': lambda x: self.convert_X(x, 'HEAT_CAPACITY'),
