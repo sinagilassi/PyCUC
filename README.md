@@ -2,7 +2,11 @@
 
 ![PyCUC Logo](./static/PyCUC-3.png)
 
-![Downloads](https://img.shields.io/pypi/dm/PyCUC) ![PyPI](https://img.shields.io/pypi/v/PyCUC) ![Python Version](https://img.shields.io/pypi/pyversions/PyCUC.svg) ![License](https://img.shields.io/pypi/l/PyCUC) ![Read the Docs](https://img.shields.io/readthedocs/pycuc)
+![Downloads](https://img.shields.io/pypi/dm/PyCUC)
+![PyPI](https://img.shields.io/pypi/v/PyCUC)
+![Python Version](https://img.shields.io/pypi/pyversions/PyCUC.svg)
+![License](https://img.shields.io/pypi/l/PyCUC)
+![Read the Docs](https://img.shields.io/readthedocs/pycuc)
 
 Python Custom Unit Converter (PyCUC) is an open-source package designed to simplify unit conversions in Python. With PyCUC, you can effortlessly create custom conversion factors, convert between units, and streamline calculations in various fields, such as physics, engineering, and scientific computing.
 
@@ -17,15 +21,26 @@ Python Custom Unit Converter (PyCUC) is an open-source package designed to simpl
 
 PyCUC supports a wide range of unit conversions. Below are the updated references you can use for conversions:
 
-- **Density**: Convert between units like kg/m³, g/cm³, lb/ft³, etc.
-- **Energy**: Convert between units like J, kJ, cal, BTU, etc.
-- **Heat Capacity**: Convert between units like J/mol·K, kJ/mol·K, cal/mol·K, etc.
-- **Volume**: Convert between units like m³, L, mL, ft³, etc.
-- **Mass**: Convert between units like kg, g, lb, oz, etc.
-- **Power**: Convert between units like W, kW, HP, etc.
-- **Length**: Convert between units like m, cm, mm, in, ft, etc.
-- **Force**: Convert between units like N, kN, lbf, etc.
-- **Velocity**: Convert between units like m/s, km/h, ft/s, mph, knots, etc.
+- **Pressure**: Convert between units like bar, Pa, kPa, MPa, atm, mmHg, psi, etc.
+- **Temperature**: Convert between units like C, F, K, R.
+- **Density**: Convert between units like g/cm3, kg/L, kg/m3, lb/ft3, mol/L, kmol/m3, etc.
+- **Concentration**: Convert between units like mol/m3, mol/L, M, mM, uM, nM, etc.
+- **Energy**: Convert between units like J, kJ, cal, kcal, Wh, kWh, BTU, ft-lb, etc.
+- **Energy Rate**: Convert between units like W, kW, MW, HP, BTU/s, BTU/min, BTU/h, cal/s, etc.
+- **Gibbs Free Energy**: Convert between units like J/mol, kJ/mol, J/kmol, cal/mol, kcal/mol, J/kg, etc.
+- **Enthalpy**: Convert between units like J/mol, kJ/mol, J/kmol, cal/mol, kcal/mol, J/kg, etc.
+- **Heat Capacity**: Convert between units like J/kg.K, kJ/kg.K, cal/kg.K, BTU/lb.F, J/mol.K, kJ/mol.K, etc.
+- **Heat Transfer Coefficient**: Convert between units like W/m2.K, kW/m2.K, W/cm2.K, W/ft2.K, BTU/(hr.ft2.F), etc.
+- **Volume**: Convert between units like m3, L, cm3, dm3, ft3, in3, gal(US), gal(UK), etc.
+- **Mass**: Convert between units like kg, g, mg, lb, oz, t, st, etc.
+- **Molecular Weight**: Convert between units like g/mol, kg/kmol, lb/lbmol, kg/mol, mg/mol, g/kmol, etc.
+- **Power**: Convert between units like W, kW, MW, GW, HP, BTU/h, ft-lb/min, etc.
+- **Length**: Convert between units like m, cm, mm, km, ft, in, yd, mi, etc.
+- **Area**: Convert between units like m2, cm2, mm2, km2, ft2, in2, yd2, hectare, acre, etc.
+- **Force**: Convert between units like N, kN, lbf, kgf, dyn, ozf, etc.
+- **Viscosity**: Convert between units like P, cP, Pa.s, mPa.s, g/cm.s, N.s/m2, lb/ft.s, etc.
+- **Flow Rate**: Convert between units like mol/s, kmol/h, kg/s, g/min, m3/s, L/min, ft3/min, gal/min, bbl/day, etc.
+- **Velocity**: Convert between units like m/s, cm/s, mm/s, km/h, ft/s, ft/min, in/s, mph, knot, etc.
 
 ## 📊 Google Colab
 
