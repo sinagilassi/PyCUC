@@ -437,6 +437,37 @@ class Refs:
         "barrel/day": 1.84013e-6,
     }
 
+    # SECTION: Velocity Conversions
+    _velocity_conversions_ref: Dict[str, float] = {
+        # NOTE: base is m/s
+        'm/s': 1.0,        # ! base unit
+        'm/sec': 1.0,
+        'cm/s': 100.0,
+        'cm/sec': 100.0,
+        'mm/s': 1000.0,
+        'mm/sec': 1000.0,
+        'km/s': 0.001,
+        'km/sec': 0.001,
+        'm/min': 60.0,
+        'm/h': 3600.0,
+        'm/hr': 3600.0,
+        'km/min': 0.06,
+        'km/h': 3.6,
+        'km/hr': 3.6,
+        'ft/s': 3.28084,
+        'ft/sec': 3.28084,
+        'ft/min': 196.8504,
+        'ft/h': 11811.024,
+        'ft/hr': 11811.024,
+        'in/s': 39.3701,
+        'in/sec': 39.3701,
+        'mph': 2.23694,
+        'mi/h': 2.23694,
+        'mi/hr': 2.23694,
+        'knot': 1.94384,
+        'kn': 1.94384,
+    }
+
     # SECTION: Reference
     _reference = {
         'PRESSURE': _pressure_conversions_ref,
@@ -457,7 +488,8 @@ class Refs:
         'AREA': _area_conversions_ref,
         'FORCE': _force_conversions_ref,
         'VISCOSITY': _viscosity_conversions_ref,
-        'FLOW_RATE': _flow_rate_conversions_ref
+        'FLOW_RATE': _flow_rate_conversions_ref,
+        'VELOCITY': _velocity_conversions_ref
     }
 
     def __init__(self):
@@ -538,6 +570,10 @@ class Refs:
     @property
     def flow_rate_conversions_ref(self):
         return self._flow_rate_conversions_ref
+
+    @property
+    def velocity_conversions_ref(self):
+        return self._velocity_conversions_ref
 
     @staticmethod
     def get_reference():

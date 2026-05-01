@@ -49,6 +49,8 @@ class CustomUnitConverter(Utils, Refs):
     _viscosity_conversions = {}
     # NOTE: flow rate
     _flow_rate_conversions = {}
+    # NOTE: velocity
+    _velocity_conversions = {}
 
     # Initialize empty custom conversions dictionary
     _custom_conversions = {}
@@ -86,6 +88,7 @@ class CustomUnitConverter(Utils, Refs):
         self._force_conversions = self.force_conversions_ref
         self._viscosity_conversions = self.viscosity_conversions_ref
         self._flow_rate_conversions = self.flow_rate_conversions_ref
+        self._velocity_conversions = self.velocity_conversions_ref
 
     def check_reference(
         self,
@@ -143,7 +146,8 @@ class CustomUnitConverter(Utils, Refs):
                 'AREA': self._area_conversions,
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
-                'FLOW_RATE': self._flow_rate_conversions
+                'FLOW_RATE': self._flow_rate_conversions,
+                'VELOCITY': self._velocity_conversions
             }
 
             # take all keys
@@ -314,6 +318,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._flow_rate_conversions
             ):
                 reference = 'FLOW_RATE'
+            # NOTE: velocity
+            elif (
+                from_unit in self._velocity_conversions and
+                to_unit in self._velocity_conversions
+            ):
+                reference = 'VELOCITY'
             # SECTION: custom
             elif (
                 from_unit in self._custom_conversions and
@@ -403,6 +413,7 @@ class CustomUnitConverter(Utils, Refs):
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
                 'FLOW_RATE': self._flow_rate_conversions,
+                'VELOCITY': self._velocity_conversions,
                 # SECTION: custom
                 'CUSTOM': self._custom_conversions
             }
@@ -433,6 +444,7 @@ class CustomUnitConverter(Utils, Refs):
                 'FORCE': lambda x: self.convert_X(x, 'FORCE'),
                 'VISCOSITY': lambda x: self.convert_X(x, 'VISCOSITY'),
                 'FLOW_RATE': lambda x: self.convert_X(x, 'FLOW_RATE'),
+                'VELOCITY': lambda x: self.convert_X(x, 'VELOCITY'),
                 # SECTION: custom
                 'CUSTOM': lambda x: self.convert_custom(x)
             }
