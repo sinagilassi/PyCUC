@@ -25,6 +25,7 @@ PyCUC supports a wide range of unit conversions. Below are the updated reference
 - **Power**: Convert between units like W, kW, HP, etc.
 - **Length**: Convert between units like m, cm, mm, in, ft, etc.
 - **Force**: Convert between units like N, kN, lbf, etc.
+- **Velocity**: Convert between units like m/s, km/h, ft/s, mph, knots, etc.
 
 ## 📊 Google Colab
 
