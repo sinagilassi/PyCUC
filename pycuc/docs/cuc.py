@@ -41,6 +41,8 @@ class CustomUnitConverter(Utils, Refs):
     _power_conversions = {}
     # NOTE: length
     _length_conversions = {}
+    # NOTE: area per length
+    _area_per_length_conversions = {}
     # NOTE: area
     _area_conversions = {}
     # NOTE: force
@@ -84,6 +86,7 @@ class CustomUnitConverter(Utils, Refs):
         self._molecular_weight_conversions = self.molecular_weight_conversions_ref
         self._power_conversions = self.power_conversions_ref
         self._length_conversions = self.length_conversions_ref
+        self._area_per_length_conversions = self.area_per_length_conversions_ref
         self._area_conversions = self.area_conversions_ref
         self._force_conversions = self.force_conversions_ref
         self._viscosity_conversions = self.viscosity_conversions_ref
@@ -143,6 +146,7 @@ class CustomUnitConverter(Utils, Refs):
                 'MOLECULAR_WEIGHT': self._molecular_weight_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
+                'AREA_PER_LENGTH': self._area_per_length_conversions,
                 'AREA': self._area_conversions,
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
@@ -294,6 +298,12 @@ class CustomUnitConverter(Utils, Refs):
                 to_unit in self._length_conversions
             ):
                 reference = 'LENGTH'
+            # NOTE: area per length
+            elif (
+                from_unit in self._area_per_length_conversions and
+                to_unit in self._area_per_length_conversions
+            ):
+                reference = 'AREA_PER_LENGTH'
             # NOTE: area
             elif (
                 from_unit in self._area_conversions and
@@ -409,6 +419,7 @@ class CustomUnitConverter(Utils, Refs):
                 'MOLECULAR_WEIGHT': self._molecular_weight_conversions,
                 'POWER': self._power_conversions,
                 'LENGTH': self._length_conversions,
+                'AREA_PER_LENGTH': self._area_per_length_conversions,
                 'AREA': self._area_conversions,
                 'FORCE': self._force_conversions,
                 'VISCOSITY': self._viscosity_conversions,
@@ -440,6 +451,7 @@ class CustomUnitConverter(Utils, Refs):
                 'MOLECULAR_WEIGHT': lambda x: self.convert_X(x, 'MOLECULAR_WEIGHT'),
                 'POWER': lambda x: self.convert_X(x, 'POWER'),
                 'LENGTH': lambda x: self.convert_X(x, 'LENGTH'),
+                'AREA_PER_LENGTH': lambda x: self.convert_X(x, 'AREA_PER_LENGTH'),
                 'AREA': lambda x: self.convert_X(x, 'AREA'),
                 'FORCE': lambda x: self.convert_X(x, 'FORCE'),
                 'VISCOSITY': lambda x: self.convert_X(x, 'VISCOSITY'),
