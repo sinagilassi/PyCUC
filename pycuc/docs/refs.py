@@ -317,6 +317,28 @@ class Refs:
         'mi': 0.000621371
     }
 
+    # SECTION: area per length conversions
+    _area_per_length_conversions_ref: Dict[str, float] = {
+        'm2/m': 1.0,  # ! base unit
+        'm²/m': 1.0,  # with unicode
+        'cm2/m': 10000.0,
+        'cm²/m': 10000.0,  # with unicode
+        'mm2/m': 1.0e6,
+        'mm²/m': 1.0e6,  # with unicode
+        'km2/m': 1.0e-6,
+        'km²/m': 1.0e-6,  # with unicode
+        'dm2/m': 100.0,
+        'dm²/m': 100.0,  # with unicode
+        'ft2/ft': 3.28084,
+        'ft²/ft': 3.28084,  # with unicode
+        'in2/in': 39.3701,
+        'in²/in': 39.3701,  # with unicode
+        'yd2/yd': 1.09361,
+        'yd²/yd': 1.09361,  # with unicode
+        'mi2/mi': 0.000621371,
+        'mi²/mi': 0.000621371,  # with unicode
+    }
+
     # SECTION: Area Conversions
     _area_conversions_ref: Dict[str, float] = {
         'm2': 1.0,  # ! base unit
@@ -485,6 +507,7 @@ class Refs:
         'MOLECULAR_WEIGHT': _molecular_weight_conversions_ref,
         'POWER': _power_conversions_ref,
         'LENGTH': _length_conversions_ref,
+        'AREA_PER_LENGTH': _area_per_length_conversions_ref,
         'AREA': _area_conversions_ref,
         'FORCE': _force_conversions_ref,
         'VISCOSITY': _viscosity_conversions_ref,
@@ -554,6 +577,10 @@ class Refs:
     @property
     def length_conversions_ref(self):
         return self._length_conversions_ref
+
+    @property
+    def area_per_length_conversions_ref(self):
+        return self._area_per_length_conversions_ref
 
     @property
     def area_conversions_ref(self):
