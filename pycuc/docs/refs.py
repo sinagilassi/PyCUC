@@ -15,6 +15,8 @@ class Refs:
         'bar': 1.0,
         'mbar': 1000.0,
         'ubar': 1000000.0,
+        '\u00B5bar': 1000000.0,  # micro sign
+        '\u03BCbar': 1000000.0,  # Greek mu
         'Pa': 100000.0,
         'hPa': 1000.0,
         'kPa': 100.0,
@@ -104,10 +106,22 @@ class Refs:
         'mol/dm\u00B3': 0.001,   # with unicode
         'mol/L': 0.001,
         'mol/l': 0.001,
+        'umol/L': 1000.0,
+        'umol/l': 1000.0,
+        '\u00B5mol/L': 1000.0,  # micro sign
+        '\u00B5mol/l': 1000.0,  # micro sign
+        '\u03BCmol/L': 1000.0,  # Greek mu
+        '\u03BCmol/l': 1000.0,  # Greek mu
         'mol/mL': 1.0e-6,
         'mol/ml': 1.0e-6,
         'mol/ft3': 0.0283168466,
         'mol/ft\u00B3': 0.0283168466,  # with unicode
+        'umol/m3': 1000000.0,
+        'umol/m\u00B3': 1000000.0,
+        '\u00B5mol/m3': 1000000.0,  # micro sign
+        '\u00B5mol/m\u00B3': 1000000.0,  # micro sign
+        '\u03BCmol/m3': 1000000.0,  # Greek mu
+        '\u03BCmol/m\u00B3': 1000000.0,  # Greek mu
         # kmol basis
         'kmol/m3': 0.001,
         'kmol/m\u00B3': 0.001,  # with unicode
@@ -232,6 +246,12 @@ class Refs:
         'W/cm2.K': 1.0e-4,
         'W/cm².K': 1.0e-4,
         'W/mm2.K': 1.0e-6,
+        'W/um2.K': 1.0e-12,
+        'W/um\u00B2.K': 1.0e-12,
+        'W/\u00B5m2.K': 1.0e-12,  # micro sign
+        'W/\u00B5m\u00B2.K': 1.0e-12,  # micro sign
+        'W/\u03BCm2.K': 1.0e-12,  # Greek mu
+        'W/\u03BCm\u00B2.K': 1.0e-12,  # Greek mu
         'W/mm².K': 1.0e-6,
         'W/ft2.K': 0.092903,
         'W/ft².K': 0.092903,
@@ -251,6 +271,16 @@ class Refs:
         'm3': 1.0,
         'm³': 1.0,          # if you want Unicode
         'L': 1000.0,
+        'mL': 1000000.0,
+        'ml': 1000000.0,
+        'uL': 1000000000.0,
+        'ul': 1000000000.0,
+        '\u00B5L': 1000000000.0,  # micro sign
+        '\u00B5l': 1000000000.0,  # micro sign
+        '\u03BCL': 1000000000.0,  # Greek mu
+        '\u03BCl': 1000000000.0,  # Greek mu
+        'microliter': 1000000000.0,
+        'microlitre': 1000000000.0,
         'cm3': 1000000.0,
         'cm³': 1000000.0,  # if you want Unicode
         'dm3': 1000.0,
@@ -268,6 +298,10 @@ class Refs:
         'kg': 1.0,
         'g': 1000.0,
         'mg': 1000000.0,
+        'ug': 1000000000.0,
+        '\u00B5g': 1000000000.0,  # micro sign
+        '\u03BCg': 1000000000.0,  # Greek mu
+        'microgram': 1000000000.0,
         'lb': 2.20462,
         'oz': 35.274,
         't': 0.001,
@@ -288,6 +322,9 @@ class Refs:
 
         # Smaller units (value increases)
         'mg/mol': 1000.0,    # 1 g/mol = 1000 mg/mol
+        'ug/mol': 1000000.0,    # 1 g/mol = 1000000 ug/mol
+        '\u00B5g/mol': 1000000.0,    # micro sign
+        '\u03BCg/mol': 1000000.0,    # Greek mu
         'g/kmol': 1000.0,    # 1 g/mol = 1000 g/kmol
 
         # Imperial mass per mole
@@ -338,6 +375,12 @@ class Refs:
         'cm2/m': 10000.0,
         'cm²/m': 10000.0,  # with unicode
         'mm2/m': 1.0e6,
+        'um2/m': 1.0e12,
+        'um\u00B2/m': 1.0e12,
+        '\u00B5m2/m': 1.0e12,  # micro sign
+        '\u00B5m\u00B2/m': 1.0e12,  # micro sign
+        '\u03BCm2/m': 1.0e12,  # Greek mu
+        '\u03BCm\u00B2/m': 1.0e12,  # Greek mu
         'mm²/m': 1.0e6,  # with unicode
         'km2/m': 1.0e-6,
         'km²/m': 1.0e-6,  # with unicode
@@ -361,6 +404,12 @@ class Refs:
         'cm\u00B2': 10000.0,  # with unicode
         'mm2': 1.0e6,
         'mm\u00B2': 1.0e6,  # with unicode
+        'um2': 1.0e12,
+        'um\u00B2': 1.0e12,
+        '\u00B5m2': 1.0e12,  # micro sign
+        '\u00B5m\u00B2': 1.0e12,  # micro sign
+        '\u03BCm2': 1.0e12,  # Greek mu
+        '\u03BCm\u00B2': 1.0e12,  # Greek mu
         'km2': 1.0e-6,
         'km\u00B2': 1.0e-6,  # with unicode
         'dm2': 100.0,
@@ -392,10 +441,16 @@ class Refs:
         'cP': 100.0,
         'Pa.s': 0.1,
         'mPa.s': 100.0,
+        'uPa.s': 100000.0,
+        '\u00B5Pa.s': 100000.0,  # micro sign
+        '\u03BCPa.s': 100000.0,  # Greek mu
         'g/cm.s': 1.0,
         'N.s/m2': 0.1,
         'N.s/m²': 0.1,
         'μP': 1e6,
+        'uP': 1e6,
+        '\u00B5P': 1e6,  # micro sign
+        '\u03BCP': 1e6,  # Greek mu
         'lb/ft.s': 0.671968,
         'lb/ft.h': 241.908
     }
@@ -416,12 +471,24 @@ class Refs:
         # mass basis
         "kg/s": 1.0,
         "g/s": 1000.0,
+        "ug/s": 1000000000.0,
+        "\u00B5g/s": 1000000000.0,  # micro sign
+        "\u03BCg/s": 1000000000.0,  # Greek mu
         "kg/min": 60.0,
         "g/min": 60000.0,
+        "ug/min": 60000000000.0,
+        "\u00B5g/min": 60000000000.0,  # micro sign
+        "\u03BCg/min": 60000000000.0,  # Greek mu
         "kg/h": 3600.0,
         "kg/hr": 3600.0,
         "g/h": 3600000.0,
         "g/hr": 3600000.0,
+        "ug/h": 3600000000000.0,
+        "ug/hr": 3600000000000.0,
+        "\u00B5g/h": 3600000000000.0,  # micro sign
+        "\u00B5g/hr": 3600000000000.0,  # micro sign
+        "\u03BCg/h": 3600000000000.0,  # Greek mu
+        "\u03BCg/hr": 3600000000000.0,  # Greek mu
         "tonne/s": 0.001,
         "lb/s": 453.592,
         "lbm/s": 453.592,
@@ -445,11 +512,23 @@ class Refs:
         "cm3/s": 1e6,
         "cm³/s": 1e6,        # if you want Unicode
         "mL/s": 1e6,
+        "uL/s": 1e9,
+        "ul/s": 1e9,
+        "\u00B5L/s": 1e9,  # micro sign
+        "\u00B5l/s": 1e9,  # micro sign
+        "\u03BCL/s": 1e9,  # Greek mu
+        "\u03BCl/s": 1e9,  # Greek mu
         "m3/min": 60.0,
         "m³/min": 60.0,      # if you want Unicode
         "L/min": 60000.0,
         "l/min": 60000.0,
         "mL/min": 6e7,
+        "uL/min": 6e10,
+        "ul/min": 6e10,
+        "\u00B5L/min": 6e10,  # micro sign
+        "\u00B5l/min": 6e10,  # micro sign
+        "\u03BCL/min": 6e10,  # Greek mu
+        "\u03BCl/min": 6e10,  # Greek mu
         "m3/h": 3600.0,
         "m³/h": 3600.0,      # if you want Unicode
         "m3/hr": 3600.0,
@@ -459,6 +538,18 @@ class Refs:
         "l/h": 3600000.0,
         "l/hr": 3600000.0,
         "mL/h": 3.6e9,
+        "uL/h": 3.6e12,
+        "uL/hr": 3.6e12,
+        "ul/h": 3.6e12,
+        "ul/hr": 3.6e12,
+        "\u00B5L/h": 3.6e12,  # micro sign
+        "\u00B5L/hr": 3.6e12,  # micro sign
+        "\u00B5l/h": 3.6e12,  # micro sign
+        "\u00B5l/hr": 3.6e12,  # micro sign
+        "\u03BCL/h": 3.6e12,  # Greek mu
+        "\u03BCL/hr": 3.6e12,  # Greek mu
+        "\u03BCl/h": 3.6e12,  # Greek mu
+        "\u03BCl/hr": 3.6e12,  # Greek mu
         "ft3/s": 35.3147,
         "ft³/s": 35.3147,      # if you want Unicode
         "ft3/min": 2118.88,
