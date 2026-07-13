@@ -36,6 +36,7 @@ PyCUC supports a wide range of unit conversions. Below are the updated reference
 - **Molecular Weight**: Convert between units like g/mol, kg/kmol, lb/lbmol, kg/mol, mg/mol, g/kmol, etc.
 - **Power**: Convert between units like W, kW, MW, GW, HP, BTU/h, ft-lb/min, etc.
 - **Length**: Convert between units like m, cm, mm, km, ft, in, yd, mi, etc.
+- **Area Per Length**: Convert between units like m2/m, cm2/m, mm2/m, ft2/ft, in2/in, yd2/yd, mi2/mi, etc.
 - **Area**: Convert between units like m2, cm2, mm2, km2, ft2, in2, yd2, hectare, acre, etc.
 - **Force**: Convert between units like N, kN, lbf, kgf, dyn, ozf, etc.
 - **Viscosity**: Convert between units like P, cP, Pa.s, mPa.s, g/cm.s, N.s/m2, lb/ft.s, etc.
@@ -106,6 +107,25 @@ print(pycuc.to(125, 'MPa => Pa'))
 # ! temperature
 print(pycuc.to(360, 'K => C'))
 print(pycuc.to(250, 'C => K'))
+```
+
+#### Area Per Length Conversion
+
+```python
+# ! check area per length reference
+print(pycuc.check_reference('AREA_PER_LENGTH'))
+
+# ! metric area per length
+print(pycuc.to(1, 'm2/m => cm2/m'))
+print(pycuc.to(1, 'cm2/m => m2/m'))
+print(pycuc.to(1, 'm2/m => mm2/m'))
+print(pycuc.to(1, 'mm2/m => m2/m'))
+
+# ! imperial area per length
+print(pycuc.to(1, 'm2/m => ft2/ft'))
+print(pycuc.to(1, 'ft2/ft => m2/m'))
+print(pycuc.to(1, 'm2/m => in2/in'))
+print(pycuc.to(1, 'in2/in => m2/m'))
 ```
 
 
