@@ -23,6 +23,7 @@ class Refs:
         'MPa': 0.1,
         'kg/cm2': 1.01972,
         'kg/cm²': 1.01972,  # with unicode
+        'kg/cm^2': 1.01972,
         'atm': 0.986923,
         'mmHg': 750.062,
         'mmH2O': 10197.162129779,
@@ -46,9 +47,11 @@ class Refs:
         # mass per volume
         'g/cm3': 1.0,  # ! base unit
         'g/cm³': 1.0,  # ! base unit with unicode
+        'g/cm^3': 1.0,  # ! base unit with caret notation
         'kg/L': 1.0,
         'g/m3': 1000000,
         'g/m³': 1000000,  # with unicode
+        'g/m^3': 1000000,  # with caret notation
         'kg/dL': 10.0,
         'g/L': 0.001,
         'g/l': 0.001,
@@ -56,16 +59,22 @@ class Refs:
         'g/ml': 1.0,
         'kg/dm3': 1.0,
         'kg/dm³': 1.0,  # with unicode
+        'kg/dm^3': 1.0,  # with caret notation
         't/m3': 1.0,
         't/m³': 1.0,  # with unicode
+        't/m^3': 1.0,  # with caret notation
         'tonne/m3': 1.0,
         'tonne/m³': 1.0,  # with unicode
+        'tonne/m^3': 1.0,  # with caret notation
         'kg/m3': 1000.0,
         'kg/m³': 1000.0,  # with unicode
+        'kg/m^3': 1000.0,  # with caret notation
         'lb/ft3': 62.42796,
         'lb/ft³': 62.42796,  # with unicode
+        'lb/ft^3': 62.42796,  # with caret notation
         'lb/in3': 27.6799,
         'lb/in³': 27.6799,  # with unicode
+        'lb/in^3': 27.6799,  # with caret notation
         # Optional common additions
         # specific gravity (dimensionless, relative to water at 1 g/cm³)
         'sg': 1.0,
@@ -73,16 +82,22 @@ class Refs:
         # mole per volume
         "kmol/m3": 1.0,  # ! base unit
         "kmol/m³": 1.0,  # ! base unit with unicode
+        "kmol/m^3": 1.0,  # ! base unit with caret notation
         "mol/m3": 1000.0,
         "mol/m³": 1000.0,  # with unicode
+        "mol/m^3": 1000.0,  # with caret notation
         "kmol/dm3": 0.001,
         "kmol/dm³": 0.001,  # with unicode
+        "kmol/dm^3": 0.001,  # with caret notation
         "mol/dm3": 1.0,
         "mol/dm³": 1.0,  # with unicode
+        "mol/dm^3": 1.0,  # with caret notation
         "kmol/cm3": 1e-6,
         "kmol/cm³": 1e-6,  # with unicode
+        "kmol/cm^3": 1e-6,  # with caret notation
         "mol/cm3": 0.001,
         "mol/cm³": 0.001,  # with unicode
+        "mol/cm^3": 0.001,  # with caret notation
         "mol/L": 1.0,
         "mol/l": 1.0,
         "M": 1.0,  # molarity shorthand
@@ -90,8 +105,10 @@ class Refs:
         "kmol/l": 0.001,
         "mol/ft3": 28.3168466,
         "mol/ft³": 28.3168466,  # with unicode
+        "mol/ft^3": 28.3168466,  # with caret notation
         "kmol/ft3": 0.0283168466,
         "kmol/ft³": 0.0283168466,  # with unicode
+        "kmol/ft^3": 0.0283168466,  # with caret notation
     }
 
     # SECTION: Concentration Conversions (mole based)
