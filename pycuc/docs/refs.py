@@ -23,7 +23,7 @@ class Refs:
         'MPa': 0.1,
         'kg/cm2': 1.01972,
         'kg/cm²': 1.01972,  # with unicode
-        'kg/cm^2': 1.01972,
+        'kg/cm^2': 1.01972,  # with caret notation
         'atm': 0.986923,
         'mmHg': 750.062,
         'mmH2O': 10197.162129779,
@@ -116,11 +116,14 @@ class Refs:
         # NOTE: base is mol/m3
         'mol/m3': 1.0,   # ! base unit
         'mol/m\u00B3': 1.0,   # ! base unit with unicode
+        'mol/m^3': 1.0,   # ! base unit with caret notation
         # mol/XXX forms
         'mol/cm3': 1.0e-6,
         'mol/cm\u00B3': 1.0e-6,  # with unicode
+        'mol/cm^3': 1.0e-6,  # with caret notation
         'mol/dm3': 0.001,
         'mol/dm\u00B3': 0.001,   # with unicode
+        'mol/dm^3': 0.001,  # with caret notation
         'mol/L': 0.001,
         'mol/l': 0.001,
         'umol/L': 1000.0,
@@ -133,15 +136,20 @@ class Refs:
         'mol/ml': 1.0e-6,
         'mol/ft3': 0.0283168466,
         'mol/ft\u00B3': 0.0283168466,  # with unicode
+        'mol/ft^3': 0.0283168466,  # with caret notation
         'umol/m3': 1000000.0,
         'umol/m\u00B3': 1000000.0,
+        'umol/m^3': 1000000.0,  # with caret notation
         '\u00B5mol/m3': 1000000.0,  # micro sign
         '\u00B5mol/m\u00B3': 1000000.0,  # micro sign
+        '\u00B5mol/m^3': 1000000.0,  # micro sign with caret notation
         '\u03BCmol/m3': 1000000.0,  # Greek mu
         '\u03BCmol/m\u00B3': 1000000.0,  # Greek mu
+        '\u03BCmol/m^3': 1000000.0,  # Greek mu with caret notation
         # kmol basis
         'kmol/m3': 0.001,
         'kmol/m\u00B3': 0.001,  # with unicode
+        'kmol/m^3': 0.001,  # with caret notation
         # molarity shorthand
         'M': 0.001,
         'mM': 1.0,
@@ -252,41 +260,54 @@ class Refs:
         # base
         'W/m2.K': 1.0,
         'W/m².K': 1.0,
+        'W/m^2.K': 1.0,  # with caret notation
         'W/m2K': 1.0,
         'W/m²K': 1.0,
+        'W/m^2K': 1.0,  # with caret notation
 
         # SI scaled
         'kW/m2.K': 0.001,
         'kW/m².K': 0.001,
+        'kW/m^2.K': 0.001,  # with caret notation
 
         # area variations
         'W/cm2.K': 1.0e-4,
         'W/cm².K': 1.0e-4,
+        'W/cm^2.K': 1.0e-4,  # with caret notation
         'W/mm2.K': 1.0e-6,
+        'W/mm².K': 1.0e-6,
+        'W/mm^2.K': 1.0e-6,  # with caret notation
         'W/um2.K': 1.0e-12,
         'W/um\u00B2.K': 1.0e-12,
+        'W/um^2.K': 1.0e-12,  # with caret notation
         'W/\u00B5m2.K': 1.0e-12,  # micro sign
         'W/\u00B5m\u00B2.K': 1.0e-12,  # micro sign
+        'W/\u00B5m^2.K': 1.0e-12,  # micro sign with caret notation
         'W/\u03BCm2.K': 1.0e-12,  # Greek mu
         'W/\u03BCm\u00B2.K': 1.0e-12,  # Greek mu
-        'W/mm².K': 1.0e-6,
+        'W/\u03BCm^2.K': 1.0e-12,  # Greek mu with caret notation
         'W/ft2.K': 0.092903,
         'W/ft².K': 0.092903,
+        'W/ft^2.K': 0.092903,  # with caret notation
 
         # imperial
         'BTU/(hr.ft2.F)': 0.1761101838,
         'BTU/(hr.ft².F)': 0.1761101838,
+        'BTU/(hr.ft^2.F)': 0.1761101838,  # with caret notation
         'BTU/hr.ft2.F': 0.1761101838,
+        'BTU/hr.ft^2.F': 0.1761101838,  # with caret notation
 
         # thermal engineering
         'kcal/(hr.m2.K)': 0.859845,
         'kcal/(hr.m².K)': 0.859845,
+        'kcal/(hr.m^2.K)': 0.859845,  # with caret notation
     }
 
     # SECTION: Volume Conversions
     _volume_conversions_ref: Dict[str, float] = {
         'm3': 1.0,
         'm³': 1.0,          # if you want Unicode
+        'm^3': 1.0,         # with caret notation
         'L': 1000.0,
         'mL': 1000000.0,
         'ml': 1000000.0,
@@ -300,12 +321,16 @@ class Refs:
         'microlitre': 1000000000.0,
         'cm3': 1000000.0,
         'cm³': 1000000.0,  # if you want Unicode
+        'cm^3': 1000000.0,  # with caret notation
         'dm3': 1000.0,
         'dm³': 1000.0,  # if you want Unicode
+        'dm^3': 1000.0,  # with caret notation
         'ft3': 35.3147,
         'ft³': 35.3147,  # if you want Unicode
+        'ft^3': 35.3147,  # with caret notation
         'in3': 61023.7,
         'in³': 61023.7,  # if you want Unicode
+        'in^3': 61023.7,  # with caret notation
         'gal(US)': 264.172,
         'gal(UK)': 219.969
     }
@@ -389,54 +414,77 @@ class Refs:
     _area_per_length_conversions_ref: Dict[str, float] = {
         'm2/m': 1.0,  # ! base unit
         'm²/m': 1.0,  # with unicode
+        'm^2/m': 1.0,  # with caret notation
         'cm2/m': 10000.0,
         'cm²/m': 10000.0,  # with unicode
+        'cm^2/m': 10000.0,  # with caret notation
         'mm2/m': 1.0e6,
+        'mm²/m': 1.0e6,  # with unicode
+        'mm^2/m': 1.0e6,  # with caret notation
         'um2/m': 1.0e12,
         'um\u00B2/m': 1.0e12,
+        'um^2/m': 1.0e12,  # with caret notation
         '\u00B5m2/m': 1.0e12,  # micro sign
         '\u00B5m\u00B2/m': 1.0e12,  # micro sign
+        '\u00B5m^2/m': 1.0e12,  # micro sign with caret notation
         '\u03BCm2/m': 1.0e12,  # Greek mu
         '\u03BCm\u00B2/m': 1.0e12,  # Greek mu
-        'mm²/m': 1.0e6,  # with unicode
+        '\u03BCm^2/m': 1.0e12,  # Greek mu with caret notation
         'km2/m': 1.0e-6,
         'km²/m': 1.0e-6,  # with unicode
+        'km^2/m': 1.0e-6,  # with caret notation
         'dm2/m': 100.0,
         'dm²/m': 100.0,  # with unicode
+        'dm^2/m': 100.0,  # with caret notation
         'ft2/ft': 3.28084,
         'ft²/ft': 3.28084,  # with unicode
+        'ft^2/ft': 3.28084,  # with caret notation
         'in2/in': 39.3701,
         'in²/in': 39.3701,  # with unicode
+        'in^2/in': 39.3701,  # with caret notation
         'yd2/yd': 1.09361,
         'yd²/yd': 1.09361,  # with unicode
+        'yd^2/yd': 1.09361,  # with caret notation
         'mi2/mi': 0.000621371,
         'mi²/mi': 0.000621371,  # with unicode
+        'mi^2/mi': 0.000621371,  # with caret notation
     }
 
     # SECTION: Area Conversions
     _area_conversions_ref: Dict[str, float] = {
         'm2': 1.0,  # ! base unit
         'm\u00B2': 1.0,  # with unicode
+        'm^2': 1.0,  # with caret notation
         'cm2': 10000.0,
         'cm\u00B2': 10000.0,  # with unicode
+        'cm^2': 10000.0,  # with caret notation
         'mm2': 1.0e6,
         'mm\u00B2': 1.0e6,  # with unicode
+        'mm^2': 1.0e6,  # with caret notation
         'um2': 1.0e12,
         'um\u00B2': 1.0e12,
+        'um^2': 1.0e12,  # with caret notation
         '\u00B5m2': 1.0e12,  # micro sign
         '\u00B5m\u00B2': 1.0e12,  # micro sign
+        '\u00B5m^2': 1.0e12,  # micro sign with caret notation
         '\u03BCm2': 1.0e12,  # Greek mu
         '\u03BCm\u00B2': 1.0e12,  # Greek mu
+        '\u03BCm^2': 1.0e12,  # Greek mu with caret notation
         'km2': 1.0e-6,
         'km\u00B2': 1.0e-6,  # with unicode
+        'km^2': 1.0e-6,  # with caret notation
         'dm2': 100.0,
         'dm\u00B2': 100.0,  # with unicode
+        'dm^2': 100.0,  # with caret notation
         'ft2': 10.7639,
         'ft\u00B2': 10.7639,  # with unicode
+        'ft^2': 10.7639,  # with caret notation
         'in2': 1550.0031,
         'in\u00B2': 1550.0031,  # with unicode
+        'in^2': 1550.0031,  # with caret notation
         'yd2': 1.19599,
         'yd\u00B2': 1.19599,  # with unicode
+        'yd^2': 1.19599,  # with caret notation
         'ha': 1.0e-4,
         'hectare': 1.0e-4,
         'acre': 2.47105e-4
@@ -464,6 +512,7 @@ class Refs:
         'g/cm.s': 1.0,
         'N.s/m2': 0.1,
         'N.s/m²': 0.1,
+        'N.s/m^2': 0.1,  # with caret notation
         'μP': 1e6,
         'uP': 1e6,
         '\u00B5P': 1e6,  # micro sign
@@ -524,10 +573,12 @@ class Refs:
         # volume basis
         "m3/s": 1.0,
         "m³/s": 1.0,          # if you want Unicode
+        "m^3/s": 1.0,         # with caret notation
         "L/s": 1000.0,
         "l/s": 1000.0,
         "cm3/s": 1e6,
         "cm³/s": 1e6,        # if you want Unicode
+        "cm^3/s": 1e6,       # with caret notation
         "mL/s": 1e6,
         "uL/s": 1e9,
         "ul/s": 1e9,
@@ -537,6 +588,7 @@ class Refs:
         "\u03BCl/s": 1e9,  # Greek mu
         "m3/min": 60.0,
         "m³/min": 60.0,      # if you want Unicode
+        "m^3/min": 60.0,     # with caret notation
         "L/min": 60000.0,
         "l/min": 60000.0,
         "mL/min": 6e7,
@@ -548,8 +600,10 @@ class Refs:
         "\u03BCl/min": 6e10,  # Greek mu
         "m3/h": 3600.0,
         "m³/h": 3600.0,      # if you want Unicode
+        "m^3/h": 3600.0,     # with caret notation
         "m3/hr": 3600.0,
         "m³/hr": 3600.0,      # if you want Unicode
+        "m^3/hr": 3600.0,     # with caret notation
         "L/h": 3600000.0,
         "L/hr": 3600000.0,
         "l/h": 3600000.0,
@@ -569,12 +623,16 @@ class Refs:
         "\u03BCl/hr": 3.6e12,  # Greek mu
         "ft3/s": 35.3147,
         "ft³/s": 35.3147,      # if you want Unicode
+        "ft^3/s": 35.3147,     # with caret notation
         "ft3/min": 2118.88,
         "ft³/min": 2118.88,    # if you want Unicode
+        "ft^3/min": 2118.88,   # with caret notation
         "ft3/h": 127132.8,
         "ft³/h": 127132.8,     # if you want Unicode
+        "ft^3/h": 127132.8,    # with caret notation
         "ft3/hr": 127132.8,
         "ft³/hr": 127132.8,     # if you want Unicode
+        "ft^3/hr": 127132.8,    # with caret notation
         "gal/s": 264.172,
         "gal/min": 15850.3,
         "bbl/day": 1.84013e-6,   # slightly more precise
