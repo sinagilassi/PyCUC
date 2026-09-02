@@ -238,69 +238,117 @@ class Refs:
     _heat_capacity_conversions_ref: Dict[str, float] = {
         # mass basis
         'J/kg.K': 1.0,
+        'J/kg*K': 1.0,  # with asterisk notation
         'kJ/kg.K': 0.001,
+        'kJ/kg*K': 0.001,  # with asterisk notation
         'cal/kg.K': 0.239006,
+        'cal/kg*K': 0.239006,  # with asterisk notation
         'kcal/kg.K': 0.000239006,
+        'kcal/kg*K': 0.000239006,  # with asterisk notation
         'cal/g.K': 0.000239006,
+        'cal/g*K': 0.000239006,  # with asterisk notation
         'J/g.K': 0.001,
+        'J/g*K': 0.001,  # with asterisk notation
         'kJ/g.K': 1.0e-6,
+        'kJ/g*K': 1.0e-6,  # with asterisk notation
         'BTU/lb.F': 0.000238846,
+        'BTU/lb*F': 0.000238846,  # with asterisk notation
         # molar basis
         'J/mol.K': 1.0,
+        'J/mol*K': 1.0,  # with asterisk notation
         'kJ/mol.K': 0.001,
+        'kJ/mol*K': 0.001,  # with asterisk notation
         'cal/mol.K': 0.239005736,
+        'cal/mol*K': 0.239005736,  # with asterisk notation
         'kcal/mol.K': 0.0002390057,
+        'kcal/mol*K': 0.0002390057,  # with asterisk notation
         'cal/kmol.K': 239.0057,
+        'cal/kmol*K': 239.0057,  # with asterisk notation
         'kcal/kmol.K': 0.2390057,
+        'kcal/kmol*K': 0.2390057,  # with asterisk notation
         'J/kmol.K': 1000.0,
+        'J/kmol*K': 1000.0,  # with asterisk notation
         'kJ/kmol.K': 1.0,
+        'kJ/kmol*K': 1.0,  # with asterisk notation
     }
 
     _heat_transfer_coefficient_ref: Dict[str, float] = {
         # base
         'W/m2.K': 1.0,
+        'W/m2*K': 1.0,  # with asterisk notation
         'W/m².K': 1.0,
+        'W/m²*K': 1.0,  # with asterisk notation
         'W/m^2.K': 1.0,  # with caret notation
+        'W/m^2*K': 1.0,  # with caret and asterisk notation
         'W/m2K': 1.0,
         'W/m²K': 1.0,
         'W/m^2K': 1.0,  # with caret notation
 
         # SI scaled
         'kW/m2.K': 0.001,
+        'kW/m2*K': 0.001,  # with asterisk notation
         'kW/m².K': 0.001,
+        'kW/m²*K': 0.001,  # with asterisk notation
         'kW/m^2.K': 0.001,  # with caret notation
+        'kW/m^2*K': 0.001,  # with caret and asterisk notation
 
         # area variations
         'W/cm2.K': 1.0e-4,
+        'W/cm2*K': 1.0e-4,  # with asterisk notation
         'W/cm².K': 1.0e-4,
+        'W/cm²*K': 1.0e-4,  # with asterisk notation
         'W/cm^2.K': 1.0e-4,  # with caret notation
+        'W/cm^2*K': 1.0e-4,  # with caret and asterisk notation
         'W/mm2.K': 1.0e-6,
+        'W/mm2*K': 1.0e-6,  # with asterisk notation
         'W/mm².K': 1.0e-6,
+        'W/mm²*K': 1.0e-6,  # with asterisk notation
         'W/mm^2.K': 1.0e-6,  # with caret notation
+        'W/mm^2*K': 1.0e-6,  # with caret and asterisk notation
         'W/um2.K': 1.0e-12,
+        'W/um2*K': 1.0e-12,  # with asterisk notation
         'W/um\u00B2.K': 1.0e-12,
+        'W/um\u00B2*K': 1.0e-12,  # with asterisk notation
         'W/um^2.K': 1.0e-12,  # with caret notation
+        'W/um^2*K': 1.0e-12,  # with caret and asterisk notation
         'W/\u00B5m2.K': 1.0e-12,  # micro sign
+        'W/\u00B5m2*K': 1.0e-12,  # micro sign with asterisk notation
         'W/\u00B5m\u00B2.K': 1.0e-12,  # micro sign
+        'W/\u00B5m\u00B2*K': 1.0e-12,  # micro sign with asterisk notation
         'W/\u00B5m^2.K': 1.0e-12,  # micro sign with caret notation
+        'W/\u00B5m^2*K': 1.0e-12,  # micro sign with caret and asterisk notation
         'W/\u03BCm2.K': 1.0e-12,  # Greek mu
+        'W/\u03BCm2*K': 1.0e-12,  # Greek mu with asterisk notation
         'W/\u03BCm\u00B2.K': 1.0e-12,  # Greek mu
+        'W/\u03BCm\u00B2*K': 1.0e-12,  # Greek mu with asterisk notation
         'W/\u03BCm^2.K': 1.0e-12,  # Greek mu with caret notation
+        'W/\u03BCm^2*K': 1.0e-12,  # Greek mu with caret and asterisk notation
         'W/ft2.K': 0.092903,
+        'W/ft2*K': 0.092903,  # with asterisk notation
         'W/ft².K': 0.092903,
+        'W/ft²*K': 0.092903,  # with asterisk notation
         'W/ft^2.K': 0.092903,  # with caret notation
+        'W/ft^2*K': 0.092903,  # with caret and asterisk notation
 
         # imperial
         'BTU/(hr.ft2.F)': 0.1761101838,
+        'BTU/(hr*ft2*F)': 0.1761101838,  # with asterisk notation
         'BTU/(hr.ft².F)': 0.1761101838,
+        'BTU/(hr*ft²*F)': 0.1761101838,  # with asterisk notation
         'BTU/(hr.ft^2.F)': 0.1761101838,  # with caret notation
+        'BTU/(hr*ft^2*F)': 0.1761101838,  # with caret and asterisk notation
         'BTU/hr.ft2.F': 0.1761101838,
+        'BTU/hr*ft2*F': 0.1761101838,  # with asterisk notation
         'BTU/hr.ft^2.F': 0.1761101838,  # with caret notation
+        'BTU/hr*ft^2*F': 0.1761101838,  # with caret and asterisk notation
 
         # thermal engineering
         'kcal/(hr.m2.K)': 0.859845,
+        'kcal/(hr*m2*K)': 0.859845,  # with asterisk notation
         'kcal/(hr.m².K)': 0.859845,
+        'kcal/(hr*m²*K)': 0.859845,  # with asterisk notation
         'kcal/(hr.m^2.K)': 0.859845,  # with caret notation
+        'kcal/(hr*m^2*K)': 0.859845,  # with caret and asterisk notation
     }
 
     # SECTION: Volume Conversions
@@ -505,20 +553,31 @@ class Refs:
         'P': 1.0,
         'cP': 100.0,
         'Pa.s': 0.1,
+        'Pa*s': 0.1,  # with asterisk notation
         'mPa.s': 100.0,
+        'mPa*s': 100.0,  # with asterisk notation
         'uPa.s': 100000.0,
+        'uPa*s': 100000.0,  # with asterisk notation
         '\u00B5Pa.s': 100000.0,  # micro sign
+        '\u00B5Pa*s': 100000.0,  # micro sign with asterisk notation
         '\u03BCPa.s': 100000.0,  # Greek mu
+        '\u03BCPa*s': 100000.0,  # Greek mu with asterisk notation
         'g/cm.s': 1.0,
+        'g/cm*s': 1.0,  # with asterisk notation
         'N.s/m2': 0.1,
+        'N*s/m2': 0.1,  # with asterisk notation
         'N.s/m²': 0.1,
+        'N*s/m²': 0.1,  # with asterisk notation
         'N.s/m^2': 0.1,  # with caret notation
+        'N*s/m^2': 0.1,  # with caret and asterisk notation
         'μP': 1e6,
         'uP': 1e6,
         '\u00B5P': 1e6,  # micro sign
         '\u03BCP': 1e6,  # Greek mu
         'lb/ft.s': 0.671968,
-        'lb/ft.h': 241.908
+        'lb/ft*s': 0.671968,  # with asterisk notation
+        'lb/ft.h': 241.908,
+        'lb/ft*h': 241.908  # with asterisk notation
     }
 
     # SECTION: Flow-rate Conversions
