@@ -1,6 +1,7 @@
 from .app import (
     create_cuc,
     convert_from_to,
+    from_to,
     check_version,
     to,
     check_reference,
@@ -18,6 +19,7 @@ from .config import (
 __all__ = [
     'create_cuc',
     'convert_from_to',
+    'from_to',
     'check_version',
     '__author__',
     '__version__',
