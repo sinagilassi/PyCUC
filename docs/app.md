@@ -1,3 +1,3 @@
-# App
+# 📖 Public API
 
 ::: pycuc.app

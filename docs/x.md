@@ -1,3 +1,3 @@
-# CUCX 
+# 🛠️ CustomUnitConverterX
 
 ::: pycuc.docs.cucx

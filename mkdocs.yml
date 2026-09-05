@@ -1,4 +1,17 @@
 site_name: PyCUC
+nav:
+  - Overview: index.md
+  - Guides:
+      - Quick start: quickstart.md
+      - Dimensional conversion: dimensional-conversion.md
+      - Legacy conversion: legacy-conversion.md
+      - Custom units: custom-units.md
+      - References and mapping: references.md
+      - Examples and performance: examples.md
+  - API reference:
+      - Public API: app.md
+      - CustomUnitConverter: docs.md
+      - CustomUnitConverterX: x.md
 theme:
   name: material
   features:
@@ -22,7 +35,7 @@ theme:
     - scheme: slate
       toggle:
         icon: material/toggle-switch
-        name: Switch to light mode    
+        name: Switch to light mode
       primary: blue
       accent: yellow
 
@@ -57,4 +70,4 @@ markdown_extensions:
 
 
 copyright: |
-  &copy; 2024 <a href="https://github.com/sinagilassi"  target="_blank" rel="noopener">Sina Gilassi</a>
+  &copy; 2026 <a href="https://github.com/sinagilassi"  target="_blank" rel="noopener">Sina Gilassi</a>

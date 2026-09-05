@@ -1,3 +1,3 @@
-# CUC
+# 🔧 CustomUnitConverter
 
 ::: pycuc.docs.cuc
