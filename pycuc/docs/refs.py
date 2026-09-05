@@ -9,7 +9,24 @@ from typing import Dict, List
 
 class Refs:
 
-    # vars
+    # SECTION: Time Conversions
+    _time_conversions_ref = {
+        "s": 1.0,
+        "ms": 1000.0,
+        "us": 1_000_000.0,
+        "min": 1 / 60,
+        "hr": 1 / 3600,
+        "day": 1.0 / 86400.0,
+    }
+
+    # SECTION: Amount Conversions
+    _amount_conversions_ref = {
+        "mol": 1.0,
+        "mmol": 1000.0,
+        "umol": 1_000_000.0,
+        "kmol": 0.001,
+    }
+
     # SECTION: Pressure Conversions
     _pressure_conversions_ref: Dict[str, float] = {
         'bar': 1.0,
