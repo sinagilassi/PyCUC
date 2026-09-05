@@ -17,6 +17,9 @@ class Refs:
         "min": 1 / 60,
         "hr": 1 / 3600,
         "day": 1.0 / 86400.0,
+        "week": 1.0 / 604800.0,
+        "month": 1.0 / 2.628e+6,  # approximate month (30.44 days)
+        "year": 1.0 / 3.154e+7,  # approximate year (365.25 days)
     }
 
     # SECTION: Amount Conversions
@@ -748,6 +751,8 @@ class Refs:
 
     # SECTION: Reference
     _reference = {
+        'TIME': _time_conversions_ref,
+        'AMOUNT': _amount_conversions_ref,
         'PRESSURE': _pressure_conversions_ref,
         'TEMPERATURE': _temperature_conversions_ref,
         'DENSITY': _density_conversions_ref,
@@ -773,6 +778,14 @@ class Refs:
 
     def __init__(self):
         pass
+
+    @property
+    def time_conversions_ref(self):
+        return self._time_conversions_ref
+
+    @property
+    def amount_conversions_ref(self):
+        return self._amount_conversions_ref
 
     @property
     def pressure_conversions_ref(self):
