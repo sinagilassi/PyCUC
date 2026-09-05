@@ -230,6 +230,32 @@ def convert_from_to(
         raise Exception('Conversion failed, ', e)
 
 
+def from_to(value: float, from_unit: str, to_unit: str) -> float:
+    """Convert compatible multiplicative unit expressions dimensionally.
+
+    Supports ``.``, ``*``, engineering-style repeated division, parentheses,
+    integer exponents, and SI prefixes.  Absolute C/F/R conversions remain
+    available through :func:`convert_from_to` and :func:`to`.
+
+    Parameters
+    ----------
+    value : float
+        The value to be converted
+    from_unit : str
+        The unit of the value
+    to_unit : str
+        The unit to convert to
+
+    Returns
+    -------
+    float
+        The converted value
+    """
+    from .docs.dimensional import convert_dimensional
+
+    return convert_dimensional(value=value, from_unit=from_unit, to_unit=to_unit)
+
+
 def to(
     value: float,
     unit_conversion_block: str,
