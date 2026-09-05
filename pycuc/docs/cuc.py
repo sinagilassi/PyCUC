@@ -11,6 +11,10 @@ from .refs import Refs
 
 class CustomUnitConverter(Utils, Refs):
     # vars
+    # NOTE: time
+    _time_conversions = {}
+    # NOTE: amount
+    _amount_conversions = {}
     # NOTE: pressure
     _pressure_conversions = {}
     # NOTE: temperature
@@ -71,6 +75,8 @@ class CustomUnitConverter(Utils, Refs):
         Refs().__init__()
 
         # NOTE: init vars
+        self._time_conversions = self.time_conversions_ref
+        self._amount_conversions = self.amount_conversions_ref
         self._pressure_conversions = self.pressure_conversions_ref
         self._temperature_conversions = self.temperature_conversions_ref
         self._density_conversions = self.density_conversions_ref
@@ -130,6 +136,8 @@ class CustomUnitConverter(Utils, Refs):
 
             # refs
             refs = {
+                'TIME': self._time_conversions,
+                'AMOUNT': self._amount_conversions,
                 'PRESSURE': self._pressure_conversions,
                 'TEMPERATURE': self._temperature_conversions,
                 'CUSTOM': self._custom_conversions_full,
@@ -208,8 +216,20 @@ class CustomUnitConverter(Utils, Refs):
         try:
             # SECTION: reference
             reference = None
-            # NOTE: pressure
+            # NOTE: time
             if (
+                from_unit in self._time_conversions and
+                to_unit in self._time_conversions
+            ):
+                reference = 'TIME'
+            # NOTE: amount
+            elif (
+                from_unit in self._amount_conversions and
+                to_unit in self._amount_conversions
+            ):
+                reference = 'AMOUNT'
+            # NOTE: pressure
+            elif (
                 from_unit in self._pressure_conversions and
                     to_unit in self._pressure_conversions
             ):
@@ -404,6 +424,8 @@ class CustomUnitConverter(Utils, Refs):
             # reference
             ref = {
                 # SECTION: predefined
+                'TIME': self._time_conversions,
+                'AMOUNT': self._amount_conversions,
                 'PRESSURE': self._pressure_conversions,
                 'TEMPERATURE': self._temperature_conversions,
                 'DENSITY': self._density_conversions,
@@ -436,6 +458,8 @@ class CustomUnitConverter(Utils, Refs):
             # reference
             ref_methods = {
                 # SECTION: predefined
+                'TIME': lambda x: self.convert_X(x, 'TIME'),
+                'AMOUNT': lambda x: self.convert_X(x, 'AMOUNT'),
                 'PRESSURE': lambda x: self.convert_pressure(x),
                 'TEMPERATURE': lambda x: self.convert_temperature(x),
                 'DENSITY': lambda x: self.convert_X(x, 'DENSITY'),
